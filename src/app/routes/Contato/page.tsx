@@ -30,7 +30,7 @@ export default function Contato() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null); // Ajuste para permitir que o erro seja nulo
 
   // Função para lidar com a mudança de seleção no "Eu sou"
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -50,13 +50,14 @@ export default function Contato() {
 
     if (value.length === 8) { // Verifica se o CEP tem 8 dígitos
       setLoading(true);
-      setError('');
+      setError(null); // Limpa o erro antes de uma nova busca
       try {
         const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
         const data = await response.json();
 
         if (data.erro) {
           setError('CEP não encontrado');
+          setFormData({ ...formData, rua: '', cidade: '', estado: '' });
         } else {
           setFormData({
             ...formData,
@@ -65,7 +66,7 @@ export default function Contato() {
             estado: data.uf,
           });
         }
-      } catch (error) {
+      } catch (err) {
         setError('Erro ao buscar o CEP');
       } finally {
         setLoading(false);
@@ -80,8 +81,18 @@ export default function Contato() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault(); // Impede o comportamento padrão de envio de formulário
 
-    // Aqui você pode adicionar uma lógica de validação antes de mostrar a mensagem de sucesso
-    if (!formData.selectedOption || !formData.cep || !formData.rua || !formData.cidade || !formData.estado || !formData.comentario || !formData.nome || !formData.email || !formData.telefone) {
+    // Validação de todos os campos
+    if (
+      !formData.selectedOption ||
+      !formData.cep ||
+      !formData.rua ||
+      !formData.cidade ||
+      !formData.estado ||
+      !formData.comentario ||
+      !formData.nome ||
+      !formData.email ||
+      !formData.telefone
+    ) {
       setError('Por favor, preencha todos os campos');
       return;
     }
@@ -101,7 +112,7 @@ export default function Contato() {
       estado: '',
       comentario: '',
     });
-    setError('');
+    setError(null); // Limpa qualquer mensagem de erro após o envio
   };
 
   return (
@@ -124,42 +135,41 @@ export default function Contato() {
                 <option value="cliente_residencial">Cliente Residencial</option>
               </select>
             </div>
-            {/* Nome e Email dinâmicos, dependendo da opção escolhida */}
             <div className={styles.linhas}>
-              <input 
-                className={styles.input} 
-                type="text" 
+              <input
+                className={styles.input}
+                type="text"
                 name="nome"
-                value={formData.nome} 
-                onChange={handleInputChange} 
-                required 
+                value={formData.nome}
+                onChange={handleInputChange}
+                required
               />
               <label className={styles.label} htmlFor="">
                 {formData.selectedOption === 'cliente_comercial' ? 'Nome Comercial' : 'Nome'}
               </label>
             </div>
             <div className={styles.linhas}>
-              <input 
-                className={styles.input} 
-                type="email" 
+              <input
+                className={styles.input}
+                type="email"
                 name="email"
-                value={formData.email} 
-                onChange={handleInputChange} 
-                required 
+                value={formData.email}
+                onChange={handleInputChange}
+                required
               />
               <label className={styles.label} htmlFor="">
                 {formData.selectedOption === 'cliente_comercial' ? 'Email Comercial' : 'Email'}
               </label>
             </div>
             <div className={styles.linhas}>
-              <input 
-                className={styles.input} 
-                type="text" 
-                maxLength={11} 
+              <input
+                className={styles.input}
+                type="text"
+                maxLength={11}
                 name="telefone"
-                value={formData.telefone} 
-                onChange={handleInputChange} 
-                required 
+                value={formData.telefone}
+                onChange={handleInputChange}
+                required
               />
               <label className={styles.label} htmlFor="">
                 Telefone
@@ -180,37 +190,19 @@ export default function Contato() {
               </label>
             </div>
             <div className={styles.linhas}>
-              <input
-                className={styles.input}
-                type="text"
-                name="rua"
-                value={formData.rua}
-                readOnly
-              />
+              <input className={styles.input} type="text" name="rua" value={formData.rua} readOnly />
               <label className={styles.label} htmlFor="">
                 Rua
               </label>
             </div>
             <div className={styles.linhas}>
-              <input
-                className={styles.input}
-                type="text"
-                name="cidade"
-                value={formData.cidade}
-                readOnly
-              />
+              <input className={styles.input} type="text" name="cidade" value={formData.cidade} readOnly />
               <label className={styles.label} htmlFor="">
                 Cidade
               </label>
             </div>
             <div className={styles.linhas}>
-              <input
-                className={styles.input}
-                type="text"
-                name="estado"
-                value={formData.estado}
-                readOnly
-              />
+              <input className={styles.input} type="text" name="estado" value={formData.estado} readOnly />
               <label className={styles.label} htmlFor="">
                 Estado
               </label>
@@ -221,11 +213,11 @@ export default function Contato() {
                 type="text"
                 name="comentario"
                 value={formData.comentario}
-                onChange={handleInputChange} // Atualiza o comentário
+                onChange={handleInputChange}
                 required
               />
               <label className={styles.label} htmlFor="">
-                Comentario
+                Comentário
               </label>
             </div>
             <div className={styles.botao}>
@@ -236,9 +228,6 @@ export default function Contato() {
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>
-      {/* Imagem para a tela de fundo da primeira parte */}
-      <section className={styles.bg}></section>
-      <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />
     </>
   );
 }

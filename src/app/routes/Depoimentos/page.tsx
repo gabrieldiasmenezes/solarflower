@@ -49,18 +49,18 @@ export default function Depoimentos(){
     {/*Box com depoimentos */}
     <section className={styles.boxD}>
         <section className={styles.dep}>
-            <h1 className={styles.tituloD}>“Um passo significativo em direção a um futuro mais sustentável.”</h1>
-            <p className={styles.textoD}>“Nosso compromisso com a sustentabilidade vai além dos nossos produtos. Ao integrar o SmartFlower em nossas operações, estamos mostrando que é possível combinar inovação com responsabilidade ambiental, promovendo o uso de energia renovável de forma eficiente e elegante.”</p>
+            <h1 className={styles.tituloD}>"Um passo significativo em direção a um futuro mais sustentável."</h1>
+            <p className={styles.textoD}>"Nosso compromisso com a sustentabilidade vai além dos nossos produtos. Ao integrar o SmartFlower em nossas operações, estamos mostrando que é possível combinar inovação com responsabilidade ambiental, promovendo o uso de energia renovável de forma eficiente e elegante."</p>
             <p className={styles.persona}>— Ana Costa, Diretora de Sustentabilidade da Natura</p>
         </section>
         <section className={styles.dep}>
-            <h1 className={styles.tituloD}>“Um marco no nosso compromisso com a sustentabilidade.”</h1>
-            <p className={styles.textoD}>“Ao incorporar o Solar Flower em nossos eventos, demonstramos que é possível ser sustentável sem abrir mão de inovação e estilo. Ele se tornou um ícone de nossa jornada em direção à energia limpa.”</p>
+            <h1 className={styles.tituloD}>"Um marco no nosso compromisso com a sustentabilidade."</h1>
+            <p className={styles.textoD}>"Ao incorporar o Solar Flower em nossos eventos, demonstramos que é possível ser sustentável sem abrir mão de inovação e estilo. Ele se tornou um ícone de nossa jornada em direção à energia limpa."</p>
             <p className={styles.persona}>— Lucas Almeida, Diretor do Rock in Rio</p>
         </section>
         <section className={styles.dep}>
-            <h1 className={styles.tituloD}>“Transformando a maneira como vemos a energia solar.”</h1>
-            <p className={styles.textoD}>“O Solar Flower é uma excelente adição à nossa sede. Com ele, não só produzimos mais energia, mas também inspiramos nossos colaboradores a adotar práticas mais sustentáveis no dia a dia.”</p>
+            <h1 className={styles.tituloD}>"Transformando a maneira como vemos a energia solar."</h1>
+            <p className={styles.textoD}>"O Solar Flower é uma excelente adição à nossa sede. Com ele, não só produzimos mais energia, mas também inspiramos nossos colaboradores a adotar práticas mais sustentáveis no dia a dia."</p>
             <p className={styles.persona}>— Mariana Torres, Diretora de Operações da Vivo</p>
         </section>
         <section className={styles.dep}>

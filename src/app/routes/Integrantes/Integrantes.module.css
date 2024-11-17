@@ -1,0 +1,282 @@
+/* Fontes que serão usadas */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;1,9..40,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+/*Backgroundo 1*/
+.bg1{
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.44);
+}
+/*Menu com os links*/
+.Menu{
+  z-index: 90;
+  position: fixed;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  color: white;
+  list-style: none;
+}
+.SolarPower2{display: none;}
+.cabecalho{
+  z-index: 90;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(0,0,0,.73);
+  align-items: center;
+  justify-content: space-evenly;
+  .SolarPower{
+    color: white;
+    text-decoration: none;
+    font-size: 2.5em;
+    font-family: "DM Sans", sans-serif;
+  }
+  .SolarPower:hover{color:#6c926c;}
+  .Link{
+    display: flex;
+    display: flex;
+    gap: 110px;
+    list-style: none; 
+    padding: 0 110px;
+    .link{
+      display: flex;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .link:hover{color:#6c926c;}
+    .linkP{
+      display: flex;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .linkP:hover{color:#6c926c;}
+    .linkP:hover .Menu2{display:block;}
+  }
+  .login{
+    display: flex;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.4s ease, opacity 0.5s ease;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: "DM Sans", sans-serif;
+  }
+  .login:hover{background-color:#6c926c;border: none;}
+  .github{display: flex;width:62px; height:62px}
+}
+/*Apresentacao do site(primeira parte da pagina principal)*/
+.box1{
+    z-index: 110;
+    display: flex;
+    position: absolute;
+    top: 17%;
+    width: 100%;
+    height: 70%;
+    justify-content: space-evenly;
+    .BSPP{
+        display: flex;
+        width: 25%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        grid-row-gap: 2.5em;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px); 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3); 
+        color: white;
+        .SP{
+            display: flex;
+            padding: 20px;
+            border-radius: 50%;
+            width: 209px;
+            height: 209px;
+        }
+        .SolarP{
+            font-family: 'DM Sans',sans-serif;
+            font-size: 1.7em;
+        }
+        .textoP{
+            font-family: 'DM Sans',sans-serif;
+            font-size:1.5em
+        }   
+        .bt1{
+            display: flex;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            justify-content: center;
+            transition: background-color 0.4s ease, opacity 0.5s ease;
+            padding: 5px 20px;
+            width: 60%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 200;
+          }
+          .bt1:hover{background-color:#6c926c;border: none;}
+    }
+  }
+  @media(min-width: 830px) and (max-width: 1024px){
+    /*Menu com os links*/
+    .cabecalho{
+      height: 12%;
+      .SolarPower{font-size: 2em;}
+      .Link{
+        padding: 0 20px;
+        gap: 40px;
+        .link{font-size: 1.2em;}
+        .linkP{font-size: 1.2em;}
+      }
+      .login{font-size: 1.2em;padding: 3px 15px;}
+      .github{width: 42px;height: 42px;}
+    }
+    /*box de Apresentacao*/
+    .box1{
+      height: 90%;
+    }
+}
+@media(min-width: 760px) and (max-width: 830px){
+    /*Menu com os links*/
+    .cabecalho{
+      height: 12%;
+      .SolarPower{font-size: 2em;}
+      .Link{
+        padding: 0 20px;
+        gap: 30px;
+        .link{font-size: 1em;}
+        .linkP{font-size: 1em;}
+      }
+      .login{font-size: 1em;padding: 3px 15px;}
+      .github{width: 42px;height: 42px;}
+    }
+    /*box de Apresentacao*/
+    .box1{
+      height: 70%;
+      .BSPP{
+        grid-row-gap: 1.5em;
+        .SP{
+            width: 159px;
+            height: 159px;
+        }
+        .SolarP{font-size: 1.5em;}
+        .textoP{font-size: 1.2em;}
+        .bt1{font-size: 1.2em;}
+      }
+    }
+
+}
+@media(min-width: 320px) and (max-width: 480px){
+    /*Menu com os links*/
+    .bg{top:0;}
+    .bg1{top:0;}
+    .Menu{z-index: 120;;display: flex;background-color: transparent;}
+    .cabecalho{display: none;}
+    .SolarPower2{
+      position: absolute;
+      top: 2px;
+      background-color: transparent;
+      z-index: 90;
+      display: flex;
+      color: white;
+      width: 100%;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 2.5em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .MenuM{
+      z-index: 100;
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-color: rgba(0,0,0,.73);
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      grid-row-gap: 3em;
+      .linkL{
+        justify-content: center;
+        width: 90%;
+        display: flex;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        font-size: 2em;
+        font-family: "DM Sans", sans-serif;
+      }
+      .linkL:hover{color:#6c926c;}
+      .loginL{
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        padding: 5px 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 2em;
+        font-family: "DM Sans", sans-serif;
+      }
+      .loginL:hover{background-color:#6c926c;border: none;}
+      .githubG{
+        display: flex;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width:62px; 
+        height:62px}
+      .Fechar{
+        position: absolute;
+        color:white;
+        font-size: 1.2em;
+        top: 2%;
+        right:4%;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: transparent;
+        cursor:pointer;
+      }
+    }
+    /*box de Apresentacao*/
+    .box1{
+        top: 20%;
+        height: 300%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-row-gap:4em;
+        .BSPP{
+            width: 60%;
+            height: 36%;
+            .SP{
+                width: 159px;
+                height: 194px;
+            }
+            .SolarP{font-size: 2em;}
+            .textoP{font-size: 1.2em;}
+            .bt1{
+                font-size: 1.2em;
+                width: 70%;
+            }
+        }
+    }
+}
+.MenuM.mostrar{display:flex}

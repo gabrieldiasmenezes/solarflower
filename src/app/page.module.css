@@ -1,168 +1,630 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+/* Fontes que serão usadas */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;1,9..40,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+/*Backgroundo 1*/
+.bg{
+  z-index: 70;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.44);
 }
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.bg1{
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.44);
 }
-
-.main {
-  display: flex;
+/*Menu com os links*/
+.Menu{
+  z-index: 90;
+  position: fixed;
+  top: 0;
+  display: none;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  color: white;
+  list-style: none;
 }
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+.SolarPower2{display: none;}
+.cabecalho{
+  z-index: 90;
+  position: absolute;
   display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(0,0,0,.73);
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  justify-content: space-evenly;
+  .SolarPower{
+    color: white;
+    text-decoration: none;
+    font-size: 2.5em;
+    font-family: "DM Sans", sans-serif;
+  }
+  .SolarPower:hover{color:#6c926c;}
+  .Link{
+    display: flex;
+    display: flex;
+    gap: 110px;
+    list-style: none; 
+    padding: 0 110px;
+    .link{
+      display: flex;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .link:hover{color:#6c926c;}
+    .linkP{
+      display: flex;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .linkP:hover{color:#6c926c;}
+    .linkP:hover .Menu2{display:block;}
+  }
+  .login{
+    display: flex;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.4s ease, opacity 0.5s ease;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: "DM Sans", sans-serif;
+  }
+  .login:hover{background-color:#6c926c;border: none;}
+  .github{display: flex;width:62px; height:62px}
 }
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
+/*Apresentacao do site(primeira parte da pagina principal)*/
+.pt1{
+  z-index: 90;
   display: flex;
-  gap: 24px;
+  position: absolute;
+  top: 28%;
+  left: 10%;
+  background-color: transparent;
+  flex-direction: column;
+  .titulo1{
+    font-family: "Lexend", sans-serif;
+    font-size: 80px;
+    color: white;
+  }
+  .texto1{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 200;
+    font-size: 1.5em;
+    width: 80%;
+    color: white;
+    padding:0 0 30px;
+  }
+  .bt1{
+    position: relative;
+    left: 10%;
+    display: flex;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.4s ease, opacity 0.5s ease;
+    padding: 5px 20px;
+    width: 25%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 200;
+  }
+  .bt1:hover{background-color:#6c926c;border: none;}
 }
-
-.footer a {
+/*box de Apresentacao*/
+.box1{
   display: flex;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+  text-align: center;
+  .titulo2{
+    position:relative ;
+    top: 10%;
+    font-family: "DM Sans", sans-serif;
+    font-size: 4em;
   }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .texto2{
+    position:relative ;
+    width: 80%;
+    top: 20%;
+    font-family: "DM Sans", sans-serif;
+    font-size: 2em;
   }
 }
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+/*Box de informacao*/
+.box2{
+  display: flex;
+  position: absolute;
+  top: 150%;
+  width: 100%;
+  height: 100%;
+  .bgBox2{
+    z-index: 70;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.34);
   }
-
-  .main {
-    align-items: center;
+  .bg2Box2{
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+  .Boxtxt1{
+    z-index: 90;
+    position:relative;
+    display: flex;
+    height: 30%;
+    width: 40%;
+    left: 50%;
+    top: 20%;
     flex-direction: column;
+    grid-row-gap:1em;
+    .titulo3{
+      font-family: "Lexend", sans-serif;
+      font-size: 3em;
+      color: white;
+    }
+    .texto3{
+      font-family: "DM Sans", sans-serif;
+      font-weight: 200;
+      font-size: 1.5em;
+      color: white;
+    }
+  }
+  .Boxtxt2{
+    z-index: 90;
+    position:absolute;
+    display: flex;
+    height: 40%;
+    width: 40%;
+    left: 5%;
+    top: 50%;
+    flex-direction: column;
+    grid-row-gap:1em;
+    .titulo4{
+      font-family: "Lexend", sans-serif;
+      font-size: 3em;
+      color: white;
+    }
+    .texto4{
+      font-family: "DM Sans", sans-serif;
+      font-weight: 200;
+      font-size: 1.5em;
+      color: white;
+    }
+  }
+}
+.degrade{
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  top: 231%;
+  height: 20%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #64cfd6);;
+}
+/*Box de informações de agendamento*/
+.box3{
+  z-index: 110;
+  position: absolute;
+  display: flex;
+  top: 250%;
+  width: 100%;
+  height: 90%;
+  background: linear-gradient(to bottom,#64cfd6, transparent);
+  .titulo5{
+    display: flex;
+    position: relative;
+    top: 17%;
+    font-family: "DM Mono", sans-serif;
+    font-size: 3em;
+    width: 100%;
+    justify-content: center;
+    height: 20%;
+  }
+  .agenda{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    height: 40%;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    .agenda1{
+      display: flex;
+      position: relative;
+      max-width: 25%;
+      flex-direction: column;
+      align-items: center;
+      grid-row-gap: 3em;
+      .tituloA{
+        font-family: "DM Sans",sans-serif;
+        font-size: 2em;
+      }
+      .textoA{
+        font-family: "DM Sans",sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+        max-width: 80%;
+      }
+    }
+  }
+  .bt3{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    justify-content: center;
+    top: 80%;
+    .bt4{
+      position: relative;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 10px;
+      transition: background-color 0.4s ease, opacity 0.5s ease;
+      padding: 5px 20px;
+      width: 20%;
+      height: 50%;
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 300;
+      top: 30%;
+    }
+    .bt4:hover{background-color:#6c926c;border: none;}
+  }
+}
+/*Rodapé*/
+.Rodape{
+  background-color: #7F8C8D;
+  display: flex;
+  position: absolute;
+  top: 350%;
+  width: 100%;
+  height: 60%;
+  justify-content: space-evenly;
+  .titulo6{
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+    font-family: "DM Sans" sans-serif;
+    color: white;
+  }
+  .LinkR{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    grid-row-gap:2em;
+    font-family: "DM Sans" sans-serif;
+    font-weight: 200;
+    .tituloR{
+      font-size: 2em;
+      padding: 40px;
+      color: white;
+    }
+    .linkR{
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    .linkR:hover{color:#364736}
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+}
+
+@media(min-width: 830px) and (max-width: 1024px){
+  /*Menu com os links*/
+  .cabecalho{
+    height: 12%;
+    .SolarPower{font-size: 2em;}
+    .Link{
+      padding: 0 20px;
+      gap: 40px;
+      .link{font-size: 1.2em;}
+      .linkP{font-size: 1.2em;}
+    }
+    .login{font-size: 1.2em;padding: 3px 15px;}
+    .github{width: 42px;height: 42px;}
+  }
+  /*Apresentacao do site(primeira parte da pagina principal)*/
+  .pt1{
+    .titulo1{font-size: 60px;}
+    .bt1{font-size: 1.2em;}
+  }
+  /*box de Apresentacao*/
+  .box1{
+    height: 70%;
+  }
+  /*Box de informacao*/
+  .box2{
+    top: 170%;
+    .Boxtxt1{
+      top: 10%;
+      .titulo3{font-size: 2.5em;}
+      .texto3{font-size: 1.2em;}
+    }
+    .Boxtxt2{
+      top: 40%;
+      .titulo4{font-size: 2.5em;}
+      .texto4{font-size: 1.2em;}
+    }
+  }
+  .degrade{top:250%;}
+  /*Box de informações de agendamento*/
+  .box3{
+    top: 270%;
+    .agenda{
+      .agenda1{
+        grid-row-gap: 2em;
+        .tituloA{font-size: 1.8em;}
+        .textoA{font-size: 1.2em;}
+      }
+    }
+    .bt3{
+      .bt4{
+      font-size: 1.2em;
+      width: 25%;
+      }
+    }
+  }
+  /*Rodapé*/
+  .Rodape{
+    top: 370%;
+    .titulo6{font-size: 2em;}
+    .LinkR{
+      grid-row-gap: 1.5em;
+      .tituloR{
+        font-size: 1.5em;
+        padding: 30px;
+      }
+      .linkR{font-size: 1.2em;}
+    }
+  }
+}
+@media(min-width: 760px) and (max-width: 830px){
+  /*Menu com os links*/
+  .cabecalho{
+    height: 12%;
+    .SolarPower{font-size: 2em;}
+    .Link{
+      padding: 0 20px;
+      gap: 30px;
+      .link{font-size: 1em;}
+      .linkP{font-size: 1em;}
+    }
+    .login{font-size: 1em;padding: 3px 15px;}
+    .github{width: 42px;height: 42px;}
+  }
+  /*Apresentacao do site(primeira parte da pagina principal)*/
+  .pt1{
+    top: 32%;
+    .titulo1{font-size: 50px;}
+    .texto1{font-size: 1.2em;}
+    .bt1{width: 40%;}
+  }
+  /*box de Apresentacao*/
+  .box1{
+    height: 80%;
+  }
+  /*Box de informações*/
+  .box2{
+    top: 170%;
+    .Boxtxt1{
+      top: 10%;
+      width: 42%;
+      .titulo3{font-size: 2.2em;}
+      .texto3{font-size: 1.2em;}
+    }
+    .Boxtxt2{
+      top: 40%;
+
+      .titulo4{font-size: 2.2em;}
+      .texto4{font-size: 1.2em;}
+    }
+  }
+  .degrade{top:250%;}
+  /*Box de informações de agendamento*/
+  .box3{
+    top: 270%;
+    .agenda{
+      .agenda1{
+        grid-row-gap: 2em;
+        .tituloA{font-size: 1.8em;}
+        .textoA{font-size: 1.2em;}
+      }
+    }
+    .bt3{
+      .bt4{
+      font-size: 1.2em;
+      width: 32%;
+      }
+    }
+  }
+  /*Rodapé*/
+  .Rodape{
+    top: 370%;
+    .titulo6{font-size: 1.5em;}
+    .LinkR{
+      grid-row-gap: 1.5em;
+      .tituloR{
+        font-size: 1.2em;
+        padding: 30px;
+      }
+      .linkR{font-size: 1em;}
+    }
   }
 
-  a.secondary {
-    min-width: auto;
+}
+@media(min-width: 320px) and (max-width: 480px){
+  /*Menu com os links*/
+  .bg{top:0;}
+  .bg1{top:0;}
+  .Menu{z-index: 120;;display: flex;background-color: transparent;}
+  .cabecalho{display: none;}
+  .SolarPower2{
+    position: absolute;
+    top: 2px;
+    background-color: transparent;
+    z-index: 90;
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2.5em;
+    font-family: "DM Sans", sans-serif;
   }
-
-  .footer {
-    flex-wrap: wrap;
+  .MenuM{
+    z-index: 100;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.73);
+    flex-direction: column;
+    text-align: center;
     align-items: center;
     justify-content: center;
+    grid-row-gap: 3em;
+    .linkL{
+      justify-content: center;
+      width: 90%;
+      display: flex;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+      font-size: 2em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .linkL:hover{color:#6c926c;}
+    .loginL{
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+      padding: 5px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 2em;
+      font-family: "DM Sans", sans-serif;
+    }
+    .loginL:hover{background-color:#6c926c;border: none;}
+    .githubG{
+      display: flex;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width:62px; 
+      height:62px}
+    .Fechar{
+      position: absolute;
+      color:white;
+      font-size: 1.2em;
+      top: 2%;
+      right:4%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: transparent;
+      cursor:pointer;
+    }
   }
-}
+  /*Apresentacao do site(primeira parte da pagina principal)*/
+  .pt1{
+    top: 20%;
+    .titulo1{font-size: 50px;}
+    .texto1{font-size: 1.1em;}
+    .bt1{
+      font-size: 1.1em;
+      width: 60%;
+      left: 5%;
+    
+    }
+  }
+  /*box de Apresentacao*/
+  .box1{
+    height: 80%;
+    .texto2{top: 15%;font-size: 1.5em;}
+  }
+  /*Box de informações*/
+  .box2{
+    top: 170%;
+    .Boxtxt1{
+      top: 8%;
+      width: 42%;
+      .titulo3{font-size: 1.5em;}
+      .texto3{font-size: 1em;}
+    }
+    .Boxtxt2{
+      top: 50%;
+      width:70%;
+      .titulo4{font-size: 1.5em;}
+      .texto4{
+        width: 100%;
+        font-size: 1em;}
+    }
+  }
+  .degrade{top:250%;}
+  /*Box de informações de agendamento*/
+  .box3{
+    height: 160%;
+    top: 270%;
+    .titulo5{font-size: 2em;}
+    .agenda{
+      top: 35%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      .agenda1{
+        max-width: 100%;
+      }
+    }
+    .bt3{
+      top: 130%;
+      .bt4{
+        width: 70%;
+      }
+    }
+  }
+  /*Rodapé*/
+  .Rodape{
+    top: 520%;
+    flex-direction: column;
+    height: 200%;
+    .titulo6{
+      justify-content: center;
+      padding: 50px;
+    }
+    .LinkR{
+      grid-row-gap: 1em;
+      height: 60%;
+      .tituloR{padding: 20px;}
+    }
+  }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
 }
+.MenuM.mostrar{display:flex}

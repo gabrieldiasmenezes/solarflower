@@ -1,0 +1,102 @@
+/* Fontes que serão usadas */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;1,9..40,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+/*Backgroundo 1*/
+.bg{
+  z-index: 70;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.44);
+}
+.bg1{
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.44);
+}
+.Logout{
+  position: absolute;
+  top: 2px;
+  left: 25px;
+  background-color: transparent;
+  z-index: 90;
+  display: flex;
+  color: white;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2.5em;
+  font-family: "DM Sans", sans-serif;
+}
+.Logout:hover{color: #6c926c;}
+.SolarPower2{
+  position: absolute;
+  top: 2px;
+  background-color: transparent;
+  z-index: 90;
+  display: flex;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2.5em;
+  font-family: "DM Sans", sans-serif;}
+/*Apresentacao do site(primeira parte da pagina principal)*/
+.pt1{
+  z-index: 90;
+  display: flex;
+  position: absolute;
+  top: 38%;
+  left: 0%;
+  width: 100%;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  .titulo1{
+    width: 80%;
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+    font-size: 80px;
+    color: white;
+  }
+}
+
+@media(min-width: 830px) and (max-width: 1024px){
+    /*Menu com os links*/
+
+    /*Apresentacao do site(primeira parte da pagina principal)*/
+    .pt1{
+      .titulo1{font-size: 60px;}
+    }
+  /*Box de informações de agendamento*/
+ 
+}
+@media(min-width: 760px) and (max-width: 830px){
+    /*Apresentacao do site(primeira parte da pagina principal)*/
+    .pt1{
+      top: 42%;
+      .titulo1{font-size: 50px;}
+      .texto1{font-size: 1.2em;}
+      .bt1{width: 40%;}
+    }
+}
+@media(min-width: 320px) and (max-width: 480px){
+    /*Menu com os links*/
+
+    /*Apresentacao do site(primeira parte da pagina principal)*/
+    .pt1{
+      top: 40%;
+      .titulo1{font-size: 40px;}
+      .texto1{font-size: 1.1em;}
+      .bt1{
+        font-size: 1.1em;
+        width: 60%;
+        left: 5%;
+      }
+    }
+    .Logout{top: 90%;}
+
+}

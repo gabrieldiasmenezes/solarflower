@@ -127,6 +127,7 @@ export default function Cadastro() {
                 className={styles.input}
                 value={formData.selectedOption}
                 onChange={handleSelectChange}
+                required
               >
                 <option value="">Eu sou</option>
                 <option value="cliente_comercial">Cliente Comercial</option>
@@ -155,6 +156,65 @@ export default function Cadastro() {
               />
               <label className={styles.label}>{formData.selectedOption === 'cliente_comercial' ? 'CNPJ' : 'CPF'}</label>
               {formData.cnpjCpfError && <p style={{ color: 'red' }}>{formData.cnpjCpfError}</p>}
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+              />
+              <label className={styles.label}>Email</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="text"
+                maxLength={11}
+                value={formData.telefone}
+                onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+                required
+              />
+              <label className={styles.label}>Telefone</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="text"
+                maxLength={8}
+                value={formData.cep}
+                onChange={handleCepChange}
+                required
+              />
+              <label className={styles.label}>CEP</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="text"
+                value={formData.rua}
+                readOnly
+              />
+              <label className={styles.label}>Rua</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="text"
+                value={formData.cidade}
+                readOnly
+              />
+              <label className={styles.label}>Cidade</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="text"
+                value={formData.estado}
+                readOnly
+              />
+              <label className={styles.label}>Estado</label>
             </div>
             <div className={styles.linhas}>
               <input

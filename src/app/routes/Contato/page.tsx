@@ -16,7 +16,6 @@ type FormData = {
 };
 
 export default function Contato() {
-  // Definindo os campos do formulário como um único objeto
   const [formData, setFormData] = useState<FormData>({
     selectedOption: '',
     nome: '',
@@ -30,27 +29,24 @@ export default function Contato() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null); // Ajuste para permitir que o erro seja nulo
+  const [error, setError] = useState<string | null>(null); // Permitir valor nulo
 
-  // Função para lidar com a mudança de seleção no "Eu sou"
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFormData({ ...formData, selectedOption: event.target.value });
   };
 
-  // Função para lidar com as mudanças nos campos de input
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Função para buscar o endereço com base no CEP
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFormData({ ...formData, cep: value });
 
-    if (value.length === 8) { // Verifica se o CEP tem 8 dígitos
+    if (value.length === 8) {
       setLoading(true);
-      setError(null); // Limpa o erro antes de uma nova busca
+      setError(null);
       try {
         const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
         const data = await response.json();
@@ -67,21 +63,19 @@ export default function Contato() {
           });
         }
       } catch (err) {
+        console.error(err); // Log de erro no console
         setError('Erro ao buscar o CEP');
       } finally {
         setLoading(false);
       }
     } else {
-      // Reseta os campos relacionados ao endereço se o CEP não for válido
       setFormData({ ...formData, rua: '', cidade: '', estado: '' });
     }
   };
 
-  // Função para enviar o formulário
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); // Impede o comportamento padrão de envio de formulário
+    event.preventDefault();
 
-    // Validação de todos os campos
     if (
       !formData.selectedOption ||
       !formData.cep ||
@@ -97,10 +91,8 @@ export default function Contato() {
       return;
     }
 
-    // Exibe o alert de sucesso
     alert('Sua mensagem foi enviada com sucesso!');
 
-    // Limpa os campos do formulário
     setFormData({
       selectedOption: '',
       nome: '',
@@ -112,7 +104,7 @@ export default function Contato() {
       estado: '',
       comentario: '',
     });
-    setError(null); // Limpa qualquer mensagem de erro após o envio
+    setError(null);
   };
 
   return (
@@ -144,7 +136,7 @@ export default function Contato() {
                 onChange={handleInputChange}
                 required
               />
-              <label className={styles.label} htmlFor="">
+              <label className={styles.label}>
                 {formData.selectedOption === 'cliente_comercial' ? 'Nome Comercial' : 'Nome'}
               </label>
             </div>
@@ -157,7 +149,7 @@ export default function Contato() {
                 onChange={handleInputChange}
                 required
               />
-              <label className={styles.label} htmlFor="">
+              <label className={styles.label}>
                 {formData.selectedOption === 'cliente_comercial' ? 'Email Comercial' : 'Email'}
               </label>
             </div>
@@ -171,9 +163,7 @@ export default function Contato() {
                 onChange={handleInputChange}
                 required
               />
-              <label className={styles.label} htmlFor="">
-                Telefone
-              </label>
+              <label className={styles.label}>Telefone</label>
             </div>
             <div className={styles.linhas}>
               <input
@@ -185,27 +175,19 @@ export default function Contato() {
                 onChange={handleCepChange}
                 required
               />
-              <label className={styles.label} htmlFor="">
-                CEP
-              </label>
+              <label className={styles.label}>CEP</label>
             </div>
             <div className={styles.linhas}>
               <input className={styles.input} type="text" name="rua" value={formData.rua} readOnly />
-              <label className={styles.label} htmlFor="">
-                Rua
-              </label>
+              <label className={styles.label}>Rua</label>
             </div>
             <div className={styles.linhas}>
               <input className={styles.input} type="text" name="cidade" value={formData.cidade} readOnly />
-              <label className={styles.label} htmlFor="">
-                Cidade
-              </label>
+              <label className={styles.label}>Cidade</label>
             </div>
             <div className={styles.linhas}>
               <input className={styles.input} type="text" name="estado" value={formData.estado} readOnly />
-              <label className={styles.label} htmlFor="">
-                Estado
-              </label>
+              <label className={styles.label}>Estado</label>
             </div>
             <div className={styles.linhas}>
               <input
@@ -216,9 +198,7 @@ export default function Contato() {
                 onChange={handleInputChange}
                 required
               />
-              <label className={styles.label} htmlFor="">
-                Comentário
-              </label>
+              <label className={styles.label}>Comentário</label>
             </div>
             <div className={styles.botao}>
               <button type="submit" className={styles.button}>Mandar Contato</button>

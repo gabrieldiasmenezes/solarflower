@@ -52,7 +52,7 @@ export default function Cadastro() {
   };
 
   // Função para buscar o endereço com base no CEP
-  const handleCepChange = async (event: { target: { value: string } }) => {
+  const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFormData({ ...formData, cep: value });
 

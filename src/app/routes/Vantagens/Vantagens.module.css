@@ -36,7 +36,7 @@
       display: flex;
       gap: 110px;
       list-style: none; 
-      padding: 0 110px;
+      padding: 0 50px;
       .link{
         display: flex;
         color: white;
@@ -58,7 +58,7 @@
       font-family: "DM Sans", sans-serif;
     }
     .login:hover{background-color:#6c926c;border: none;}
-    .github{display: flex;width:62px; height:62px}
+    .github{display: flex;width:42px; height:42px}
   }
   .cabecalho2{
     z-index: 90;
@@ -92,7 +92,7 @@
     position: absolute;
     justify-content: space-evenly;
     width: 100%;
-    height: 230%;
+    height: 270%;
     top: 20%;
     .X{
       font-family: 'DM Sans',sans-serif;
@@ -159,7 +159,7 @@
     z-index: 100;
     position: absolute;
     display: flex;
-    top: 236%;
+    top: 266%;
     height: 20%;
     width: 100%;
     background: linear-gradient(to bottom, transparent, #64cfd6);;
@@ -169,7 +169,7 @@
         z-index: 110;
         position: absolute;
         display: flex;
-        top: 255%;
+        top: 285%;
         width: 100%;
         height: 90%;
         background: linear-gradient(to bottom,#64cfd6, transparent);
@@ -245,7 +245,7 @@
         background-color: #7F8C8D;
         display: flex;
         position: absolute;
-        top: 355%;
+        top: 385%;
         width: 100%;
         height: 60%;
         justify-content: space-evenly;
@@ -301,7 +301,7 @@
         }
       }
     .boxET{
-        height: 280%;
+        height: 150%;
         .ETP{
             width: 40%;
             .SP{
@@ -323,10 +323,10 @@
             }
         }
     }
-    .degrade{top:286%;}
+    .degrade{top:156%;}
     /*Box de informações de agendamento*/
   .box4{
-      top: 306%;
+      top: 176%;
       .agenda{
       .agenda1{
           grid-row-gap: 2em;
@@ -343,7 +343,8 @@
   }
   /*Rodapé*/
   .Rodape{
-      top: 406%;
+      top: 270%;
+      height: 30%;
       .titulo7{font-size: 2em;}
       .LinkR{
       grid-row-gap: 1.5em;
@@ -378,7 +379,7 @@
           }
         }
         .boxET{
-            height: 300%;
+            height: 255%;
             .ETP{
                 width: 40%;
                 height: 98%;
@@ -401,11 +402,11 @@
                 }
             }
         }
-        .degrade{top:330%;}
+        .degrade{top:280%;}
         /*Box de informações de agendamento*/
     /*Box de informações de agendamento*/
   .box4{
-    top: 350%;
+    top: 299%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -422,7 +423,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 450%;
+    top: 400%;
+    height: 40%;
     .titulo7{font-size: 1.5em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -523,7 +525,7 @@
         }
         .boxET{
             top: 120%;
-            height: 365%;
+            height: 400%;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -549,11 +551,11 @@
                 }
             }
         }
-        .degrade{top:580%;}
+        .degrade{top:620%;}
     /*Box de informações de agendamento*/
         .box4{
             height: 160%;
-            top: 600%;
+            top: 640%;
             .titulo6{font-size: 2em;}
             .agenda{
             top: 35%;
@@ -573,7 +575,7 @@
         }
         /*Rodapé*/
         .Rodape{
-            top: 850%;
+            top: 890%;
             flex-direction: column;
             height: 200%;
             .titulo7{

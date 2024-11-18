@@ -28,7 +28,7 @@
   display: flex;
   position: absolute;
   width: 100%;
-  height: 130%;
+  height: 150%;
   justify-content: center;
   align-items: center;
 }
@@ -143,10 +143,10 @@
 }
 
 @media (min-width: 830px) and (max-width: 1024px) {
-  .boxForm {height: 180%;}
+  .boxForm {height: 100%;}
 }
 @media(min-width: 760px) and (max-width: 830px){
-    .boxForm {height: 180%;}  
+    .boxForm {height: 140%;}  
 }
 @media(min-width: 320px) and (max-width: 480px){
     .boxForm {height: 180%;}  

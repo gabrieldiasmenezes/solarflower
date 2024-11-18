@@ -21,7 +21,7 @@
 /*Menu com os links*/
 .Menu{
   z-index: 90;
-  position: fixed;
+  position: absolute;
   top: 0;
   display: none;
   flex-direction: column;
@@ -334,7 +334,30 @@
   }
 
 }
-
+@media (min-width: 1280px) and (max-width: 1920px){
+  .cabecalho{
+    .Link{
+      padding: 0 50px;
+    }
+    .github{
+      width: 42px;
+      height: 42px;
+    }
+  }
+  .box2{
+    .bgBox2{height: 115%;}
+    .bg2Box2{height: 115%;}
+  }
+  .degrade{
+    top: 245%;
+  }
+  .box3{
+    top:263%;
+  }
+  .Rodape{
+    height: 70%;
+  }
+}
 @media(min-width: 830px) and (max-width: 1024px){
   /*Menu com os links*/
   .cabecalho{
@@ -343,16 +366,17 @@
     .Link{
       padding: 0 20px;
       gap: 40px;
-      .link{font-size: 1.2em;}
-      .linkP{font-size: 1.2em;}
+      .link{font-size: 1.5em;}
+      .linkP{font-size: 1.5em;}
     }
-    .login{font-size: 1.2em;padding: 3px 15px;}
+    .login{font-size: 1.5em;padding: 3px 15px;}
     .github{width: 42px;height: 42px;}
   }
   /*Apresentacao do site(primeira parte da pagina principal)*/
   .pt1{
-    .titulo1{font-size: 60px;}
-    .bt1{font-size: 1.2em;}
+    .titulo1{font-size: 90px;}
+    .texto1{font-size: 1.8em;}
+    .bt1{font-size: 1.8em;width: 40%;}
   }
   /*box de Apresentacao*/
   .box1{
@@ -360,7 +384,7 @@
   }
   /*Box de informacao*/
   .box2{
-    top: 170%;
+    top: 150%;
     .Boxtxt1{
       top: 10%;
       .titulo3{font-size: 2.5em;}
@@ -372,37 +396,38 @@
       .texto4{font-size: 1.2em;}
     }
   }
-  .degrade{top:250%;}
+  .degrade{top:230%;}
   /*Box de informações de agendamento*/
   .box3{
-    top: 270%;
+    top: 250%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
-        .tituloA{font-size: 1.8em;}
-        .textoA{font-size: 1.2em;}
+        .tituloA{font-size: 2em;}
+        .textoA{font-size: 1.5em;}
       }
     }
     .bt3{
       .bt4{
-      font-size: 1.2em;
+      font-size: 1.5em;
       width: 25%;
       }
     }
   }
   /*Rodapé*/
   .Rodape{
-    top: 370%;
-    .titulo6{font-size: 2em;}
+    top: 350%;
+    height: 40%;
+    .titulo6{font-size: 2.2em;padding: 0 30px;}
     .LinkR{
       grid-row-gap: 1.5em;
       .tituloR{
-        font-size: 1.5em;
+        font-size: 2em;
         padding: 30px;
       }
-      .linkR{font-size: 1.2em;}
-    }
+      .linkR{font-size: 1.8em;}
   }
+}
 }
 @media(min-width: 760px) and (max-width: 830px){
   /*Menu com os links*/
@@ -423,7 +448,7 @@
     top: 32%;
     .titulo1{font-size: 50px;}
     .texto1{font-size: 1.2em;}
-    .bt1{width: 40%;}
+    .bt1{width: 50%;}
   }
   /*box de Apresentacao*/
   .box1{
@@ -466,14 +491,14 @@
   /*Rodapé*/
   .Rodape{
     top: 370%;
-    .titulo6{font-size: 1.5em;}
+    .titulo6{font-size: 1.8em;padding: 0 30px;}
     .LinkR{
       grid-row-gap: 1.5em;
       .tituloR{
-        font-size: 1.2em;
+        font-size: 2em;
         padding: 30px;
       }
-      .linkR{font-size: 1em;}
+      .linkR{font-size: 1.5em;}
     }
   }
 
@@ -482,7 +507,7 @@
   /*Menu com os links*/
   .bg{top:0;}
   .bg1{top:0;}
-  .Menu{z-index: 120;;display: flex;background-color: transparent;}
+  .Menu{z-index: 90;;display: flex;background-color: transparent;}
   .cabecalho{display: none;}
   .SolarPower2{
     position: absolute;
@@ -560,7 +585,7 @@
     .texto1{font-size: 1.1em;}
     .bt1{
       font-size: 1.1em;
-      width: 60%;
+      width: 70%;
       left: 5%;
     
     }
@@ -574,14 +599,14 @@
   .box2{
     top: 170%;
     .Boxtxt1{
-      top: 8%;
+      top: 5%;
       width: 42%;
       .titulo3{font-size: 1.5em;}
       .texto3{font-size: 1em;}
     }
     .Boxtxt2{
-      top: 50%;
-      width:70%;
+      top: 55%;
+      width:75%;
       .titulo4{font-size: 1.5em;}
       .texto4{
         width: 100%;

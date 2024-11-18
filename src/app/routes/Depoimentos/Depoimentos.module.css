@@ -21,7 +21,7 @@
 /*Menu com os links*/
 .Menu{
   z-index: 90;
-  position: fixed;
+  position: absolute;
   top: 0;
   display: none;
   flex-direction: column;
@@ -137,7 +137,7 @@
     z-index: 100;
     position: absolute;
     display: flex;
-    top: 361%;
+    top: 411%;
     height: 20%;
     width: 100%;
     background: linear-gradient(to bottom, transparent, #64cfd6);;
@@ -147,7 +147,7 @@
     z-index: 110;
     position: absolute;
     display: flex;
-    top: 380%;
+    top:430%;
     width: 100%;
     height: 90%;
     background: linear-gradient(to bottom,#64cfd6, transparent);
@@ -223,9 +223,9 @@
     background-color: #7F8C8D;
     display: flex;
     position: absolute;
-    top: 480%;
+    top: 530%;
     width: 100%;
-    height: 60%;
+    height: 70%;
     justify-content: space-evenly;
     .titulo6{
       display: flex;
@@ -256,6 +256,17 @@
     }
   
   }
+  @media (min-width: 1280px) and (max-width: 1920px){
+    .cabecalho{
+      .Link{
+        padding: 0 50px;
+      }
+      .github{
+        width: 42px;
+        height: 42px;
+      }
+    }
+  }  
 @media(min-width: 830px) and (max-width: 1024px){
     /*Menu com os links*/
     .cabecalho{
@@ -274,10 +285,10 @@
     .pt1{
       .titulo1{font-size: 60px;}
     }
-    .degrade{top:480%;}
+    .degrade{top:310%;}
   /*Box de informações de agendamento*/
   .box3{
-    top: 500%;
+    top: 329%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -294,7 +305,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top:600%;
+    top:419%;
+    height: 30%;
     .titulo6{font-size: 2em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -327,10 +339,10 @@
       .texto1{font-size: 1.2em;}
       .bt1{width: 40%;}
     }
-    .degrade{top:520%;}
+    .degrade{top:460%;}
   /*Box de informações de agendamento*/
   .box3{
-    top: 540%;
+    top: 480%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -347,7 +359,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 640%;
+    top: 580%;
+    height: 40%;
     .titulo6{font-size: 1.5em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -445,11 +458,11 @@
         left: 5%;
       }
     }
-    .degrade{top:720%;}
+    .degrade{top:790%;}
   /*Box de informações de agendamento*/
   .box3{
     height: 160%;
-    top: 740%;
+    top: 810%;
     .titulo5{font-size: 2em;}
     .agenda{
       top: 35%;
@@ -469,7 +482,7 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 990%;
+    top: 1150%;
     flex-direction: column;
     height: 200%;
     .titulo6{

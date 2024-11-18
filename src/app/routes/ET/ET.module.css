@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
+
 /*Menu com os links*/
 .Menu{
     z-index: 90;
@@ -36,7 +37,7 @@
       display: flex;
       gap: 110px;
       list-style: none; 
-      padding: 0 110px;
+      padding: 0 50px;
       .link{
         display: flex;
         color: white;
@@ -58,7 +59,7 @@
       font-family: "DM Sans", sans-serif;
     }
     .login:hover{background-color:#6c926c;border: none;}
-    .github{display: flex;width:62px; height:62px}
+    .github{display: flex;width:42px; height:42px}
   }
   .cabecalho2{
     z-index: 90;
@@ -92,7 +93,7 @@
     position: absolute;
     justify-content: space-evenly;
     width: 100%;
-    height: 150%;
+    height: 175%;
     top: 20%;
     .ETP{
         display: flex;
@@ -171,7 +172,7 @@
     z-index: 100;
     position: absolute;
     display: flex;
-    top: 156%;
+    top: 176%;
     height: 20%;
     width: 100%;
     background: linear-gradient(to bottom, transparent, #64cfd6);;
@@ -181,7 +182,7 @@
         z-index: 110;
         position: absolute;
         display: flex;
-        top: 175%;
+        top: 195%;
         width: 100%;
         height: 90%;
         background: linear-gradient(to bottom,#64cfd6, transparent);
@@ -257,9 +258,9 @@
         background-color: #7F8C8D;
         display: flex;
         position: absolute;
-        top: 275%;
+        top: 295%;
         width: 100%;
-        height: 60%;
+        height: 70%;
         justify-content: space-evenly;
         .titulo7{
         display: flex;
@@ -289,7 +290,7 @@
         .linkR:hover{color:#364736}
         }
     }
-
+  
   @media(min-width: 830px) and (max-width: 1024px){
     /*Menu com os links*/
     .cabecalho{
@@ -313,7 +314,7 @@
         }
       }
     .boxET{
-        height: 180%;
+        height: 100%;
         .ETP{
             width: 40%;
             .SP{font-size: 2em;}
@@ -338,10 +339,10 @@
             }
         }
     }
-    .degrade{top:186%;}
+    .degrade{top:126%;}
     /*Box de informações de agendamento*/
   .box4{
-      top: 206%;
+      top: 146%;
       .agenda{
       .agenda1{
           grid-row-gap: 2em;
@@ -358,7 +359,8 @@
   }
   /*Rodapé*/
   .Rodape{
-      top: 306%;
+      top: 246%;
+      height: 30%;
       .titulo7{font-size: 2em;}
       .LinkR{
       grid-row-gap: 1.5em;
@@ -393,7 +395,7 @@
           }
         }
         .boxET{
-            height: 200%;
+            height: 160%;
             .ETP{
                 width: 40%;
                 height: 98%;
@@ -419,11 +421,11 @@
                 }
             }
         }
-        .degrade{top:220%;}
+        .degrade{top:200%;}
         /*Box de informações de agendamento*/
     /*Box de informações de agendamento*/
   .box4{
-    top: 240%;
+    top: 220%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -440,7 +442,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 340%;
+    top: 320%;
+    height: 50%;
     .titulo7{font-size: 1.5em;}
     .LinkR{
       grid-row-gap: 1.5em;

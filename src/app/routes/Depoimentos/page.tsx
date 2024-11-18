@@ -61,15 +61,31 @@ export default function Depoimentos(){
             <p className={styles.textoD}>&quot;Ao incorporar o Solar Flower em nossos eventos, demonstramos que é possível ser sustentável sem abrir mão de inovação e estilo. Ele se tornou um ícone de nossa jornada em direção à energia limpa.&quot;</p>
             <p className={styles.persona}>— Lucas Almeida, Diretor do Rock in Rio</p>
           </section>
-
-          {/* Outros depoimentos */}
           <section className={styles.dep}>
             <h1 className={styles.tituloD}>&quot;Transformando a maneira como vemos a energia solar.&quot;</h1>
             <p className={styles.textoD}>&quot;O Solar Flower é uma excelente adição à nossa sede. Com ele, não só produzimos mais energia, mas também inspiramos nossos colaboradores a adotar práticas mais sustentáveis no dia a dia.&quot;</p>
             <p className={styles.persona}>— Mariana Torres, Diretora de Operações da Vivo</p>
           </section>
-
-          {/* Mais seções de depoimentos */}
+          <section className={styles.dep}>
+            <h1 className={styles.tituloD}>&quot;A energia renovável ao seu alcance, agora para pequenas empresas!&quot;</h1>
+            <p className={styles.textoD}>&quot;O Solar Power tem sido uma excelente solução para a EcoBrew. A instalação foi simples e o sistema atende perfeitamente às nossas necessidades, com uma excelente economia. Estamos orgulhosos de gerar nossa própria energia renovável.&quot;</p>
+            <p className={styles.persona}>—Carlos Botelho, Fundador do EcoBrew Café</p>
+          </section>
+          <section className={styles.dep}>
+            <h1 className={styles.tituloD}>&quot;Sustentabilidade inteligente para o seu negócio!&quot;</h1>
+            <p className={styles.textoD}>&quot;O Solar Power foi a escolha ideal para a GreenTech. Ele é eficiente, acessível e se adapta bem ao nosso orçamento. Além disso, é uma forma prática de reduzir nossa pegada ambiental.&quot;</p>
+            <p className={styles.persona}>—Patrícia Oliveira, Gerente de Sustentabilidade da GreenTech</p>
+          </section>
+          <section className={styles.dep}>
+            <h1 className={styles.tituloD}>&quot;Economia e sustentabilidade no seu lar!&quot;</h1>
+            <p className={styles.textoD}>&quot;Instalar o Solar Power em minha casa foi uma excelente decisão. Ele oferece uma ótima capacidade de geração de energia, reduzindo minha conta de luz e, ao mesmo tempo, ajudando o meio ambiente.&quot;</p>
+            <p className={styles.persona}>—Luciana Ferreira, Proprietária de Casa em São Paulo</p>
+          </section>
+          <section className={styles.dep}>
+            <h1 className={styles.tituloD}>&quot;Energia solar acessível e eficiente para sua casa!&quot;</h1>
+            <p className={styles.textoD}>&quot;Com o Solar Power, consegui uma forma econômica de gerar energia em casa. Ele é fácil de instalar, eficiente e perfeito para quem quer reduzir custos e colaborar com a sustentabilidade.&quot;</p>
+            <p className={styles.persona}>—Eduardo Silva, Morador de Porto Alegre</p>
+          </section>
         </section>
 
         {/* Terceira box */}
@@ -118,6 +134,9 @@ export default function Depoimentos(){
             <Link className={styles.linkR} href={'Contato'}>Contato</Link>
           </ul>
         </footer> 
+        {/* Imagem para a tela de fundo da primeira parte */}
+      <section className={styles.bg}></section>
+      <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />
         </>
     )
 }

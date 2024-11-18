@@ -156,11 +156,11 @@
 }
 
 @media (min-width: 830px) and (max-width: 1024px) {
-  .boxForm {height: 180%;}
+  .boxForm {height: 100%;}
 }
 @media(min-width: 760px) and (max-width: 830px){
-    .boxForm {height: 180%;}  
+    .boxForm {height: 100%;}  
 }
 @media(min-width: 320px) and (max-width: 480px){
-    .boxForm {height: 180%;}  
+    .boxForm {height: 120%;}  
 }

@@ -148,6 +148,7 @@
             font-family: "DM Sans", sans-serif;
             font-weight: 200;
           }
+          .bt1:hover{background-color:#6c926c;border: none;}
     }
   }
   .box2{

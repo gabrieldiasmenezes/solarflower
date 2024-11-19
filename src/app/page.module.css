@@ -48,7 +48,7 @@
   .Link{
     display: flex;
     display: flex;
-    gap: 110px;
+    gap: 80px;
     list-style: none; 
     padding: 0 110px;
     .link{
@@ -81,7 +81,13 @@
     font-family: "DM Sans", sans-serif;
   }
   .login:hover{background-color:#6c926c;border: none;}
-  .github{display: flex;width:62px; height:62px}
+  .github{
+    display: flex;
+    width:62px; 
+    height:62px;
+    border-radius: 50px;
+    
+}
 }
 /*Apresentacao do site(primeira parte da pagina principal)*/
 .pt1{

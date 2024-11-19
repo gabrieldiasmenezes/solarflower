@@ -149,7 +149,7 @@ export default function ET(){
         </section>
       </section>
       <section className={styles.bt3}>
-      <p className={styles.bt4}>Reserve pelo chat !!</p>
+      <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat !!</Link>
       </section>
     </section>
     {/*Rodapé*/}

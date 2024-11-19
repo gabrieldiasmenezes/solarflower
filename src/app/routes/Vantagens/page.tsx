@@ -105,7 +105,23 @@ export default function Vantagens(){
                         <li className={styles.borda}></li>
                         <li className={styles.item}>Permissões locais necessárias</li>
                     </ul>
-                </section>       
+                </section>            
+                <section className={styles.info}>
+                    <h3 className={styles.tituloI}>Custos</h3>
+                    <ul className={styles.lista}>
+                        <li className={styles.item}>Preço:R$85.000{"("}Solar Flower Minun{")"} ou R$170.000{"("}Solar Flower Plus{")"}{"("}Entregue pré-montado e com os serviços técnicos e de instalações inclusos{")"}</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Custo de Manutenção Anual:R$ 200 a R$ 400 por ano (pouco desgaste, limpeza automática)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Custo com Reparos ao Longo do Tempo:Baixo custo de reparo (baixa probabilidade de falhas)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia de Energia (mensal):R$ 250 a R$ 400 por mês (genera de 3.500 a 6.000 kWh/ano, 40% mais eficiente)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia Anual de Energia:R$ 3.000 a R$ 4.800 por ano</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia em 10 Anos	R$ 30.000 a R$ 48.000 (considerando maior eficiência e menor custo de manutenção)</li>
+                    </ul>
+                </section>            
             </section>
             <h1 className={styles.X}>X</h1>
             {/*Box com as especificações técnicas Solar Power Minun*/}
@@ -162,7 +178,23 @@ export default function Vantagens(){
                         <li className={styles.borda}></li>
                         <li className={styles.item}>Permissões locais necessárias</li>
                     </ul>
-                </section>       
+                </section>  
+                <section className={styles.info}>
+                    <h3 className={styles.tituloI}>Custos</h3>
+                    <ul className={styles.lista}>
+                        <li className={styles.item}>Preço:R$ 30.000 a R$ 45.000 (instalação separada, complexa)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Custo de Manutenção Anual:R$ 4.000 a R$ 6.000 por m² (requere maior mão de obra e tempo)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Custo com Reparos ao Longo do Tempo:Alto custo de reparo (painéis danificados ou desgaste excessivo)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia de Energia (mensal):$ 150 a R$ 250 por mês (eficiência menor, perdas de rendimento)</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia Anual de Energia:R$ 1.800 a R$ 3.000 por ano</li>
+                        <li className={styles.borda}></li>
+                        <li className={styles.item}>Economia em 10 Anos:R$ 18.000 a R$ 30.000 (menor eficiência e custos adicionais de manutenção)</li>
+                    </ul>
+                </section>      
             </section>
         </section>
         <section className={styles.degrade}></section>
@@ -184,7 +216,7 @@ export default function Vantagens(){
         </section>
       </section>
       <section className={styles.bt3}>
-        <p className={styles.bt4}>Reserve pelo chat !!</p>
+        <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat !!</Link>
       </section>
     </section>
     {/*Rodapé*/}

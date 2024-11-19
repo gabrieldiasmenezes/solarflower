@@ -1,0 +1,166 @@
+/* Fontes que serão usadas */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;1,9..40,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+/* Background */
+.bg {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.44);
+}
+
+.bg1 {
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.44);
+}
+
+/* Formulario */
+.boxForm {
+  z-index: 10;
+  border: 1px solid black;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.Menu {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #f8f8f8;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  transition: background-color 0.4s ease, opacity 0.5s ease;
+}
+
+.Menu:hover {
+  color: #6c926c;
+}
+
+.background {
+  width: 400px;
+  padding: 20px 30px;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.titulo {
+  color: white;
+  font-family: 'Lexend', sans-serif;
+  font-size: 25px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.linhas {
+  margin: 15px 0;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.input {
+  outline: none;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  font-size: 16px;
+}
+
+/* Mantém o label no topo se o input estiver preenchido */
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label,
+.inputC:focus ~ .label,
+.inputC:not(:placeholder-shown) ~ .label {
+  top: 10px;
+  font-size: 18px;
+  transform: translateY(-120%);
+}
+
+.label {
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: 0.15s;
+  font-size: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 200;
+}
+
+.inputC {
+  width: 100%;
+  height: 100px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #ccc;
+  font-size: 16px;
+  text-align: start;
+}
+
+.botao {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  border: 1px solid #ccc;
+  padding: 7px 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  color: #ccc;
+  background-color: transparent;
+  transition: background-color 0.4s ease, opacity 0.5s ease;
+}
+
+.button:hover {
+  background-color: #6c926c;
+  border: none;
+}
+.cad{
+  color: #ccc;
+  font-size: 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 200;
+  .link{
+    color: #ccc;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+  }
+  .link:hover{color: #6c926c;}
+}
+
+@media (min-width: 830px) and (max-width: 1024px) {
+  .boxForm {height: 100%;}
+}
+@media(min-width: 760px) and (max-width: 830px){
+    .boxForm {height: 100%;}  
+}
+@media(min-width: 320px) and (max-width: 480px){
+    .boxForm {height: 120%;}  
+}

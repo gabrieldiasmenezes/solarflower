@@ -58,7 +58,7 @@ export default function Produtos(){
                 <p className={styles.textoP}>Energia solar máxima para sua casa ou empresa. Invista em sustentabilidade com potência total e economize nas suas contas de luz!</p>
                 <del className={styles.PA}>R$259.978,87</del>
                 <p className={styles.PN}>R$170.000,00</p>
-                <p className={styles.bt1}>Reserve plo chat!</p>
+                <Link href={'LoginA'} className={styles.bt1}>Reserve pelo chat!</Link>
             </section>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/SolarPower.png" alt="" />
@@ -66,7 +66,7 @@ export default function Produtos(){
                 <p className={styles.textoP}>Eficiência solar ao seu alcance! O Minun combina alta tecnologia e economia, tornando a energia renovável acessível para sua casa ou pequeno negócio.</p>
                 <del className={styles.PA}>R$129.989,48</del>
                 <p className={styles.PN}>R$85.000,00</p>
-                <p className={styles.bt1}>Reserve pelo chat!</p>
+                <Link href={'LoginA'} className={styles.bt1}>Reserve pelo chat!</Link>
             </section>
         </section>
         {/*Box com Informações sobre */}
@@ -110,7 +110,7 @@ export default function Produtos(){
         </section>
       </section>
       <section className={styles.bt3}>
-      <p className={styles.bt4}>Reserve pelo chat!!</p>
+      <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat!!</Link>
       </section>
     </section>
     {/*Rodapé*/}

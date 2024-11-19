@@ -45,7 +45,7 @@ export default function Depoimentos(){
                 <img className={styles.SP} src="/SolarPower.png" alt="" />
                 <h1 className={styles.SolarP}>João Gabriel Silva Oliveira</h1>
                 <p className={styles.textoP}>RM:555308</p>
-                <Link href={'/'} className={styles.bt1}>GITHUB</Link>
+                <Link href={'https://github.com/gabrieldiasmenezes'} className={styles.bt1}>GITHUB</Link>
             </section>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/gabriel.jfif" alt="" />
@@ -57,7 +57,7 @@ export default function Depoimentos(){
                 <img className={styles.SP} src="/SolarPower.png" alt="" />
                 <h1 className={styles.SolarP}>Sofia Domingues Gonçalves</h1>
                 <p className={styles.textoP}>RM:554920 </p>
-                <Link href={'/'} className={styles.bt1}>GITHUB</Link>
+                <Link href={'https://github.com/domiis'} className={styles.bt1}>GITHUB</Link>
             </section>
             
         </section>

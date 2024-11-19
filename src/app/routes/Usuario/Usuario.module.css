@@ -32,6 +32,20 @@
   font-family: "DM Sans", sans-serif;
 }
 .Logout:hover{color: #6c926c;}
+.Agenda{
+  position: absolute;
+  top: 2px;
+  left: 80%;
+  background-color: transparent;
+  z-index: 90;
+  display: flex;
+  color: white;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2.5em;
+  font-family: "DM Sans", sans-serif;
+}
+.Agenda:hover{color: #6c926c;}
 .SolarPower2{
   position: absolute;
   top: 2px;

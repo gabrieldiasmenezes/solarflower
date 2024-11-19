@@ -2,12 +2,13 @@
 import styles from './Usuario.module.css'
 import Link from 'next/link'
 
-export default function Depoimentos(){
+export default function Usuario(){
     return(
         <>
         {/* Menu mobile */}
       <Link href={'/'} className={styles.SolarPower2}>SolarFlower</Link>
       <Link href={'/'} className={styles.Logout}>Logout</Link>
+      <Link href={'Agendamento'} className={styles.Agenda}>Agendar serviço</Link>
       
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.pt1}>

@@ -24,7 +24,6 @@
 /* Formulario */
 .boxForm {
   z-index: 10;
-  border: 1px solid black;
   display: flex;
   position: absolute;
   width: 100%;
@@ -166,7 +165,8 @@
 .historico {
   position: absolute;
   z-index: 10;
-  top: 70%;
+  left: 29%;
+  top: 80%;
   margin-top: 30px;
   width: 100%;
   max-width: 600px; /* Largura máxima para que não fique muito largo em telas grandes */
@@ -224,6 +224,35 @@
   font-size: 16px;
   margin-top: 20px;
 }
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.editButton, .deleteButton {
+  border: 1px solid #ccc;
+  padding: 7px 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  color: #ccc;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.editButton:hover {
+  background-color: #4caf50; /* Cor verde para o botão de editar */
+  border: none;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #e53935; /* Cor vermelha para o botão de deletar */
+  border: none;
+  color: white;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -248,19 +277,49 @@
 
 /* Responsividade */
 @media (min-width: 830px) and (max-width: 1024px) {
+  .historico{left: 20%;}
   .boxForm {
     height: 100%;
+  }
+  .editButton, .deleteButton {
+    font-size: 15px;
+    padding: 6px 12px;
   }
 }
 
 @media (min-width: 760px) and (max-width: 830px) {
+  .historico{left: 10%;}
   .boxForm {
     height: 100%;
+  }
+  .editButton, .deleteButton {
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 30%;
+
+  }
+
+  .actions {
+
+    gap: 10px; /* Espaçamento entre os botões */
   }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .boxForm {
     height: 120%;
+  }
+  .historico{
+    top: 90%;
+    left: 5%;
+  }
+  .editButton, .deleteButton {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px; /* Espaçamento entre os botões */
   }
 }

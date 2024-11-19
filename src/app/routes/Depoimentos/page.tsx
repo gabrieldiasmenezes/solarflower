@@ -15,8 +15,7 @@ export default function Depoimentos(){
         {menu && (
           <section className={`${styles.MenuM} ${styles.mostrar}`}>
             <button className={styles.Fechar} onClick={fecha}>x</button>
-            <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
-            <Link href={"Login"} className={styles.loginL}>Login</Link>
+            <Link href={"Login"} className={styles.githubG}><img className={styles.githubG} src="/usu.avif" alt="GitHub"  /></Link>
             <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
             <Link href={"Depoimentos"} className={styles.linkL}>Depoimentos</Link>
             <Link href={"Integrantes"} className={styles.linkL}>Integrantes</Link>
@@ -40,8 +39,7 @@ export default function Depoimentos(){
             <Link href={"Integrantes"} className={styles.link}>Integrantes</Link>
             <Link href={"Contato"} className={styles.link}>Contato</Link>
           </ul>
-          <Link href={"Login"} className={styles.login}>Login</Link>
-          <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+          <Link href={"Login"} className={styles.github}><img className={styles.github} src="/usu.avif" alt="GitHub"  /></Link>
         </header>
 
         {/* Textos na primeira parte da pagina principal */}
@@ -108,7 +106,7 @@ export default function Depoimentos(){
             </section>
           </section>
           <section className={styles.bt3}>
-            <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat !!</Link>
+            <Link href={'LoginA'} className={styles.bt4}>Reserve o seu!!</Link>
           </section>
         </section>
 

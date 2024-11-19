@@ -24,11 +24,10 @@
 /* Formulario */
 .boxForm {
   z-index: 10;
-  border: 1px solid black;
   display: flex;
   position: absolute;
   width: 100%;
-  height: 130%;
+  height: 160%;
   justify-content: center;
   align-items: center;
 }
@@ -143,11 +142,11 @@
 }
 
 @media (min-width: 830px) and (max-width: 1024px) {
-  .boxForm {height: 100%;}
+  .boxForm {height: 140%;}
 }
 @media(min-width: 760px) and (max-width: 830px){
-    .boxForm {height: 170%;}  
+    .boxForm {height: 190%;}  
 }
 @media(min-width: 320px) and (max-width: 480px){
-    .boxForm {height: 180%;}  
+    .boxForm {height: 190%;}  
 }

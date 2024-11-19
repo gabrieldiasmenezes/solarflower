@@ -8,7 +8,7 @@ export default function Usuario(){
         {/* Menu mobile */}
       <Link href={'/'} className={styles.SolarPower2}>SolarFlower</Link>
       <Link href={'/'} className={styles.Logout}>Logout</Link>
-      <Link href={'Agendamento'} className={styles.Agenda}>Agendar serviço</Link>
+      <Link href={'Agendamentos'} className={styles.Agenda}>Agendar serviço</Link>
       
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.pt1}>

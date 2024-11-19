@@ -14,8 +14,7 @@ export default function Vantagens(){
             {menu && (
         <section className={`${styles.MenuM} ${styles.mostrar}`}>
         <button className={styles.Fechar} onClick={fecha}>x</button>
-        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="/github.jfif" alt="GitHub"  /></Link>
-        <Link href={"Login"} className={styles.loginL}>Login</Link>
+        <Link href={"Login"} className={styles.githubG}><img className={styles.githubG} src="/usu.avif" alt="GitHub"  /></Link>
         <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
         <Link href={"ET"} className={styles.linkL2}>Especificações Técnicas</Link>
             <Link href={"Vantagens"} className={styles.linkL2}>Vantagens</Link>
@@ -38,15 +37,14 @@ export default function Vantagens(){
             <Link href={"Depoimentos"} className={styles.link}>Depoimentos</Link>
             <Link href={"Integrantes"} className={styles.link}>Integrantes</Link>
             <Link href={"Contato"} className={styles.link}>Contato</Link>
-        </ul>
-        
-        <Link href={"Login"} className={styles.login}>Login</Link>
-        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+        </ul>     
+        <Link href={"Login"} className={styles.github}><img className={styles.github} src="/usu.avif" alt="GitHub"  /></Link>
         </header>
         <header className={styles.cabecalho2}>
         <ul className={styles.Link2}>
             <Link href={"ET"} className={styles.link2}>Especificações Técnicas</Link>
             <Link href={"Vantagens"} className={styles.link2}>Vantagens</Link>
+
         </ul>
         </header>
         {/*Box com as especificações técnicas de cada um dos modelos */}
@@ -216,7 +214,7 @@ export default function Vantagens(){
         </section>
       </section>
       <section className={styles.bt3}>
-        <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat !!</Link>
+        <Link href={'LoginA'} className={styles.bt4}>Reserve o seu !!</Link>
       </section>
     </section>
     {/*Rodapé*/}

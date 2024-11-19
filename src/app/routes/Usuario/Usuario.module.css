@@ -35,14 +35,14 @@
 .Agenda{
   position: absolute;
   top: 2px;
-  left: 80%;
+  left: 75%;
   background-color: transparent;
   z-index: 90;
   display: flex;
   color: white;
   justify-content: center;
   text-decoration: none;
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-family: "DM Sans", sans-serif;
 }
 .Agenda:hover{color: #6c926c;}
@@ -85,6 +85,10 @@
     .pt1{
       .titulo1{font-size: 60px;}
     }
+    .Agenda{
+      font-size: 1.8em;
+      left: 70%;
+    }
   /*Box de informações de agendamento*/
  
 }
@@ -96,6 +100,12 @@
       .texto1{font-size: 1.2em;}
       .bt1{width: 40%;}
     }
+    .Agenda{
+      font-size: 1.2em;
+      left: 70%;
+    }
+    .Logout{font-size: 1.8em;}
+    .SolarPower2{font-size: 1.8em;}
 }
 @media(min-width: 320px) and (max-width: 480px){
     /*Menu com os links*/
@@ -112,5 +122,13 @@
       }
     }
     .Logout{top: 90%;}
+    .SolarPower2{
+      font-size: 1.5em;
+      justify-content: start;}
+    .Agenda{
+      left: 60%;
+      font-size: 1.2em;
+    }
+    
 
 }

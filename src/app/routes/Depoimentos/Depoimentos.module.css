@@ -69,19 +69,12 @@
     .linkP:hover{color:#6c926c;}
     .linkP:hover .Menu2{display:block;}
   }
-  .login{
+  .github{
     display: flex;
-    border: 1px solid white;
-    border-radius: 10px;
-    transition: background-color 0.4s ease, opacity 0.5s ease;
-    padding: 5px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-family: "DM Sans", sans-serif;
+    width:62px; 
+    height:62px;
+    border-radius: 50%;
   }
-  .login:hover{background-color:#6c926c;border: none;}
-  .github{display: flex;width:62px; height:62px}
 }
 /*Apresentacao do site(primeira parte da pagina principal)*/
 .pt1{
@@ -278,17 +271,16 @@
         .link{font-size: 1.2em;}
         .linkP{font-size: 1.2em;}
       }
-      .login{font-size: 1.2em;padding: 3px 15px;}
       .github{width: 42px;height: 42px;}
     }
     /*Apresentacao do site(primeira parte da pagina principal)*/
     .pt1{
       .titulo1{font-size: 60px;}
     }
-    .degrade{top:310%;}
+    .degrade{top:401%;}
   /*Box de informações de agendamento*/
   .box3{
-    top: 329%;
+    top: 420%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -305,8 +297,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top:419%;
-    height: 30%;
+    top:510%;
+    height: 50%;
     .titulo6{font-size: 2em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -329,7 +321,6 @@
         .link{font-size: 1em;}
         .linkP{font-size: 1em;}
       }
-      .login{font-size: 1em;padding: 3px 15px;}
       .github{width: 42px;height: 42px;}
     }
     /*Apresentacao do site(primeira parte da pagina principal)*/
@@ -339,10 +330,10 @@
       .texto1{font-size: 1.2em;}
       .bt1{width: 40%;}
     }
-    .degrade{top:460%;}
+    .degrade{top:570%;}
   /*Box de informações de agendamento*/
   .box3{
-    top: 480%;
+    top: 590%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -359,8 +350,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 580%;
-    height: 40%;
+    top: 690%;
+    height: 60%;
     .titulo6{font-size: 1.5em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -414,19 +405,8 @@
         font-family: "DM Sans", sans-serif;
       }
       .linkL:hover{color:#6c926c;}
-      .loginL{
-        display: flex;
-        justify-content: center;
-        width: 90%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
-        padding: 5px 20px;
-        color: white;
-        text-decoration: none;
-        font-size: 2em;
-        font-family: "DM Sans", sans-serif;
-      }
-      .loginL:hover{background-color:#6c926c;border: none;}
       .githubG{
+        border-radius: 50%;
         display: flex;
         position: absolute;
         top: 5px;
@@ -482,7 +462,7 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 1150%;
+    top: 1050%;
     flex-direction: column;
     height: 200%;
     .titulo6{

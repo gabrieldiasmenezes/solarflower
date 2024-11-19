@@ -14,8 +14,7 @@ export default function Produtos(){
         {menu && (
         <section className={`${styles.MenuM} ${styles.mostrar}`}>
         <button className={styles.Fechar} onClick={fecha}>x</button>
-        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="/github.jfif" alt="GitHub"  /></Link>
-        <Link href={"Login"} className={styles.loginL}>Login</Link>
+        <Link href={"Login"} className={styles.githubG}><img className={styles.githubG} src="/usu.avif" alt="GitHub"  /></Link>
         <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
         <Link href={"ET"} className={styles.linkL2}>Especificações Técnicas</Link>
             <Link href={"Vantagens"} className={styles.linkL2}>Vantagens</Link>
@@ -38,10 +37,8 @@ export default function Produtos(){
             <Link href={"Depoimentos"} className={styles.link}>Depoimentos</Link>
             <Link href={"Integrantes"} className={styles.link}>Integrantes</Link>
             <Link href={"Contato"} className={styles.link}>Contato</Link>
-        </ul>
-        
-        <Link href={"Login"} className={styles.login}>Login</Link>
-        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+        </ul>     
+        <Link href={"Login"} className={styles.github}><img className={styles.github} src="/usu.avif" alt="GitHub"  /></Link>
         </header>
         <header className={styles.cabecalho2}>
         <ul className={styles.Link2}>
@@ -54,11 +51,11 @@ export default function Produtos(){
         <section className={styles.box1}>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/SolarPower.png" alt="" />
-                <h1 className={styles.SolarP}>Solar Power <span className={styles.comp}>+</span></h1>
+                <h1 className={styles.SolarP}>Solar Power <span className={styles.comp}>Plus</span></h1>
                 <p className={styles.textoP}>Energia solar máxima para sua casa ou empresa. Invista em sustentabilidade com potência total e economize nas suas contas de luz!</p>
                 <del className={styles.PA}>R$259.978,87</del>
                 <p className={styles.PN}>R$170.000,00</p>
-                <Link href={'LoginA'} className={styles.bt1}>Reserve pelo chat!</Link>
+                <Link href={'LoginA'} className={styles.bt1}>Reserve o seu!</Link>
             </section>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/SolarPower.png" alt="" />
@@ -66,7 +63,7 @@ export default function Produtos(){
                 <p className={styles.textoP}>Eficiência solar ao seu alcance! O Minun combina alta tecnologia e economia, tornando a energia renovável acessível para sua casa ou pequeno negócio.</p>
                 <del className={styles.PA}>R$129.989,48</del>
                 <p className={styles.PN}>R$85.000,00</p>
-                <Link href={'LoginA'} className={styles.bt1}>Reserve pelo chat!</Link>
+                <Link href={'LoginA'} className={styles.bt1}>Reserve o seu!</Link>
             </section>
         </section>
         {/*Box com Informações sobre */}
@@ -110,7 +107,7 @@ export default function Produtos(){
         </section>
       </section>
       <section className={styles.bt3}>
-      <Link href={'LoginA'} className={styles.bt4}>Reserve pelo chat!!</Link>
+      <Link href={'LoginA'} className={styles.bt4}>Reserve o seu!!</Link>
       </section>
     </section>
     {/*Rodapé*/}

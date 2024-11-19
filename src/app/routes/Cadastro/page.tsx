@@ -65,7 +65,7 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
   }));
 
   // Verificar se o CEP tem 8 caracteres antes de tentar buscar
-  if (value.length === 8) {
+  if (value.length === 9) {
     setFormData((prevState) => ({ ...prevState, loading: true }));
     try {
       const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
@@ -205,7 +205,7 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
               <input
                 className={styles.input}
                 type="text"
-                maxLength={8}
+                maxLength={9}
                 value={formData.cep}
                 onChange={handleCepChange}  // Permite digitação e chama a função handleCepChange
                 required

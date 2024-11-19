@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;1,9..40,200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
 /*Backgroundo 1*/
 .bg{
   z-index: 70;
@@ -69,24 +70,11 @@
     .linkP:hover{color:#6c926c;}
     .linkP:hover .Menu2{display:block;}
   }
-  .login{
-    display: flex;
-    border: 1px solid white;
-    border-radius: 10px;
-    transition: background-color 0.4s ease, opacity 0.5s ease;
-    padding: 5px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-family: "DM Sans", sans-serif;
-  }
-  .login:hover{background-color:#6c926c;border: none;}
   .github{
     display: flex;
     width:62px; 
     height:62px;
     border-radius: 50px;
-    
 }
 }
 /*Apresentacao do site(primeira parte da pagina principal)*/
@@ -375,7 +363,6 @@
       .link{font-size: 1.5em;}
       .linkP{font-size: 1.5em;}
     }
-    .login{font-size: 1.5em;padding: 3px 15px;}
     .github{width: 42px;height: 42px;}
   }
   /*Apresentacao do site(primeira parte da pagina principal)*/
@@ -423,7 +410,7 @@
   /*Rodapé*/
   .Rodape{
     top: 350%;
-    height: 40%;
+    height: 60%;
     .titulo6{font-size: 2.2em;padding: 0 30px;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -446,7 +433,6 @@
       .link{font-size: 1em;}
       .linkP{font-size: 1em;}
     }
-    .login{font-size: 1em;padding: 3px 15px;}
     .github{width: 42px;height: 42px;}
   }
   /*Apresentacao do site(primeira parte da pagina principal)*/
@@ -490,13 +476,15 @@
     .bt3{
       .bt4{
       font-size: 1.2em;
-      width: 45%;
+      width: 30%;
+      top: 100%;
       }
     }
   }
   /*Rodapé*/
   .Rodape{
     top: 370%;
+    height: 80%;
     .titulo6{font-size: 1.8em;padding: 0 30px;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -513,7 +501,7 @@
   /*Menu com os links*/
   .bg{top:0;}
   .bg1{top:0;}
-  .Menu{z-index: 90;;display: flex;background-color: transparent;}
+  .Menu{z-index: 90;display: flex;background-color: transparent;}
   .cabecalho{display: none;}
   .SolarPower2{
     position: absolute;
@@ -551,19 +539,8 @@
       font-family: "DM Sans", sans-serif;
     }
     .linkL:hover{color:#6c926c;}
-    .loginL{
-      display: flex;
-      justify-content: center;
-      width: 90%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.301);
-      padding: 5px 20px;
-      color: white;
-      text-decoration: none;
-      font-size: 2em;
-      font-family: "DM Sans", sans-serif;
-    }
-    .loginL:hover{background-color:#6c926c;border: none;}
     .githubG{
+      border-radius: 50%;
       display: flex;
       position: absolute;
       top: 5px;

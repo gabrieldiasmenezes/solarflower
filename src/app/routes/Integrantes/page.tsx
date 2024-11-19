@@ -13,8 +13,8 @@ export default function Depoimentos(){
     {menu && (
       <section className={`${styles.MenuM} ${styles.mostrar}`}>
       <button className={styles.Fechar} onClick={fecha}>x</button>
-      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
-      <Link href={"Login"} className={styles.loginL}>Login</Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="/github.jfif" alt="GitHub"  /></Link>
+      <Link href={"Login"} className={styles.loginL}><img className={styles.loginL} src="/usu.avif" alt="GitHub"  /></Link>
       <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
       <Link href={"Depoimentos"} className={styles.linkL}>Depoimentos</Link>
       <Link href={"Integrantes"} className={styles.linkL}>Integrantes</Link>
@@ -36,8 +36,8 @@ export default function Depoimentos(){
         <Link href={"Integrantes"} className={styles.link}>Integrantes</Link>
         <Link href={"Contato"} className={styles.link}>Contato</Link>
       </ul>
-      <Link href={"Login"} className={styles.login}>Login</Link>
-      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+      <Link href={"Login"} className={styles.login}><img className={styles.login} src="/usu.avif" alt="GitHub"  /></Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img className={styles.github} src="/github.jfif" alt="GitHub"  /></Link>
     </header>
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.box1}>
@@ -51,7 +51,7 @@ export default function Depoimentos(){
                 <img className={styles.SP} src="/gabriel.jfif" alt="" />
                 <h1 className={styles.SolarP}>Gabriel Dias Menezes</h1>
                 <p className={styles.textoP}>RM:555019</p>
-                <Link href={'/'} className={styles.bt1}>GITHUB</Link>
+                <Link href={'https://github.com/JoaoGabrielSilvaOliveiraa'} className={styles.bt1}>GITHUB</Link>
             </section>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/SolarPower.png" alt="" />

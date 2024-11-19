@@ -47,19 +47,12 @@
       }
       .link:hover{color:#6c926c;}
     }
-    .login{
+    .github{
       display: flex;
-      border: 1px solid white;
-      border-radius: 10px;
-      transition: background-color 0.4s ease, opacity 0.5s ease;
-      padding: 5px 20px;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5em;
-      font-family: "DM Sans", sans-serif;
+      width:42px; 
+      height:42px;
+      border-radius: 50%;
     }
-    .login:hover{background-color:#6c926c;border: none;}
-    .github{display: flex;width:42px; height:42px}
   }
   .cabecalho2{
     z-index: 90;
@@ -93,7 +86,7 @@
     position: absolute;
     justify-content: space-evenly;
     width: 100%;
-    height: 145%;
+    height: 175%;
     top: 20%;
     .ETP{
         display: flex;
@@ -301,7 +294,6 @@
         gap: 40px;
         .link{font-size: 1.2em;}
       }
-      .login{font-size: 1.2em;padding: 3px 15px;}
       .github{width: 42px;height: 42px;}
     }
     .cabecalho2{
@@ -314,7 +306,7 @@
         }
       }
     .boxET{
-        height: 100%;
+        height: 150%;
         .ETP{
             width: 40%;
             .SP{font-size: 2em;}
@@ -339,10 +331,10 @@
             }
         }
     }
-    .degrade{top:126%;}
+    .degrade{top:146%;}
     /*Box de informações de agendamento*/
   .box4{
-      top: 146%;
+      top: 166%;
       .agenda{
       .agenda1{
           grid-row-gap: 2em;
@@ -359,8 +351,8 @@
   }
   /*Rodapé*/
   .Rodape{
-      top: 246%;
-      height: 30%;
+      top: 266%;
+      height: 50%;
       .titulo7{font-size: 2em;}
       .LinkR{
       grid-row-gap: 1.5em;
@@ -382,7 +374,6 @@
             gap: 30px;
             .link{font-size: 1em;}
           }
-          .login{font-size: 1em;padding: 3px 15px;}
           .github{width: 42px;height: 42px;}
         }
         .cabecalho2{
@@ -395,7 +386,7 @@
           }
         }
         .boxET{
-            height: 160%;
+            height: 210%;
             .ETP{
                 width: 40%;
                 height: 98%;
@@ -421,11 +412,11 @@
                 }
             }
         }
-        .degrade{top:200%;}
+        .degrade{top:220%;}
         /*Box de informações de agendamento*/
     /*Box de informações de agendamento*/
   .box4{
-    top: 220%;
+    top: 240%;
     .agenda{
       .agenda1{
         grid-row-gap: 2em;
@@ -442,8 +433,8 @@
   }
   /*Rodapé*/
   .Rodape{
-    top: 320%;
-    height: 50%;
+    top: 340%;
+    height: 60%;
     .titulo7{font-size: 1.5em;}
     .LinkR{
       grid-row-gap: 1.5em;
@@ -509,25 +500,15 @@
             font-family: "DM Sans", sans-serif;
           }
           .linkL2:hover{color:#6c926c;}
-          .loginL{
-            display: flex;
-            justify-content: center;
-            width: 90%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.301);
-            padding: 5px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 2em;
-            font-family: "DM Sans", sans-serif;
-          }
-          .loginL:hover{background-color:#6c926c;border: none;}
           .githubG{
             display: flex;
             position: absolute;
             top: 5px;
             left: 5px;
             width:62px; 
-            height:62px}
+            height:62px;
+            border-radius: 50%;
+          }
           .Fechar{
             position: absolute;
             color:white;

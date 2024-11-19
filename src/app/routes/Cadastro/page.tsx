@@ -22,7 +22,7 @@ type FormData = {
 };
 
 export default function Cadastro() {
-  // Estados para armazenar os dados do formulário
+  // Estado para armazenar os dados do formulário
   const [formData, setFormData] = useState<FormData>({
     selectedOption: '',
     nome: '',
@@ -52,35 +52,58 @@ export default function Cadastro() {
   };
 
   // Função para buscar o endereço com base no CEP
-  const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setFormData({ ...formData, cep: value });
+  // Função para buscar o endereço com base no CEP
+const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const { value } = event.target;
+  setFormData((prevState) => ({
+    ...prevState,
+    cep: value,
+    rua: '', // Limpa os campos de endereço enquanto digita
+    cidade: '',
+    estado: '',
+    error: '', // Limpa o erro caso esteja presente
+  }));
 
-    if (value.length === 8) {
-      setFormData({ ...formData, loading: true, error: '' });
-      try {
-        const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
-        const data = await response.json();
+  // Verificar se o CEP tem 8 caracteres antes de tentar buscar
+  if (value.length === 8) {
+    setFormData((prevState) => ({ ...prevState, loading: true }));
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
+      const data = await response.json();
 
-        if (data.erro) {
-          setFormData({ ...formData, error: 'CEP não encontrado' });
-        } else {
-          setFormData({
-            ...formData,
-            rua: data.logradouro,
-            cidade: data.localidade,
-            estado: data.uf,
-          });
-        }
-      } catch {
-        setFormData({ ...formData, error: 'Erro ao buscar o CEP' });
-      } finally {
-        setFormData({ ...formData, loading: false });
+      if (data.erro) {
+        setFormData((prevState) => ({
+          ...prevState,
+          error: 'CEP não encontrado',
+          loading: false,
+        }));
+      } else {
+        setFormData((prevState) => ({
+          ...prevState,
+          rua: data.logradouro,
+          cidade: data.localidade,
+          estado: data.uf,
+          loading: false,
+        }));
       }
-    } else {
-      setFormData({ ...formData, rua: '', cidade: '', estado: '' });
+    } catch {
+      setFormData((prevState) => ({
+        ...prevState,
+        error: 'Erro ao buscar o CEP',
+        loading: false,
+      }));
     }
-  };
+  } else {
+    // Se o CEP não tem 8 caracteres, limpar os dados de endereço
+    setFormData((prevState) => ({
+      ...prevState,
+      rua: '',
+      cidade: '',
+      estado: '',
+    }));
+  }
+};
+
 
   // Função para validar o formulário antes de enviar
   const handleFormSubmit = (event: React.FormEvent) => {
@@ -184,7 +207,7 @@ export default function Cadastro() {
                 type="text"
                 maxLength={8}
                 value={formData.cep}
-                onChange={handleCepChange}
+                onChange={handleCepChange}  // Permite digitação e chama a função handleCepChange
                 required
               />
               <label className={styles.label}>CEP</label>

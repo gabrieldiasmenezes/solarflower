@@ -16,7 +16,6 @@ export default function Contato() {
     comentario: '',
   });
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,7 +93,6 @@ export default function Contato() {
               </button>
             </div>
           </form>
-          {loading && <p>Carregando...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>

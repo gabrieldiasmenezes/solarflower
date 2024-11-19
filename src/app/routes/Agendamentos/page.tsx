@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import styles from './Ag.module.css'
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Agendamentos() {
   // Estados para armazenar os dados do formulário e o histórico de agendamentos

@@ -13,7 +13,7 @@ export default function Depoimentos(){
     {menu && (
       <section className={`${styles.MenuM} ${styles.mostrar}`}>
       <button className={styles.Fechar} onClick={fecha}>x</button>
-      <Link href={""} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
       <Link href={"Login"} className={styles.loginL}>Login</Link>
       <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
       <Link href={"Depoimentos"} className={styles.linkL}>Depoimentos</Link>
@@ -37,7 +37,7 @@ export default function Depoimentos(){
         <Link href={"Contato"} className={styles.link}>Contato</Link>
       </ul>
       <Link href={"Login"} className={styles.login}>Login</Link>
-      <Link href={""} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
     </header>
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.box1}>

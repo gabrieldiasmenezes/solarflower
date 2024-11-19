@@ -2,18 +2,19 @@
 import Link from "next/link"
 import { useState } from "react"
 import styles from './ET.module.css'
-
+import WatsonChat from './WatsonChat'
 export default function ET(){
     const [menu,setMenu]=useState(false)
     const mostra=()=>{setMenu(true)}
     const fecha=()=>{setMenu(false)}
     return(
         <>
+        <WatsonChat/>
             {/* Menu mobile */}
             {menu && (
         <section className={`${styles.MenuM} ${styles.mostrar}`}>
         <button className={styles.Fechar} onClick={fecha}>x</button>
-        <Link href={""} className={styles.githubG}><img className={styles.githubG} src="/github.jfif" alt="GitHub"  /></Link>
+        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="/github.jfif" alt="GitHub"  /></Link>
         <Link href={"Login"} className={styles.loginL}>Login</Link>
         <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
         <Link href={"ET"} className={styles.linkL2}>Especificações Técnicas</Link>
@@ -40,7 +41,7 @@ export default function ET(){
         </ul>
         
         <Link href={"Login"} className={styles.login}>Login</Link>
-        <Link href={""} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+        <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
         </header>
         <header className={styles.cabecalho2}>
         <ul className={styles.Link2}>
@@ -148,7 +149,7 @@ export default function ET(){
         </section>
       </section>
       <section className={styles.bt3}>
-      <Link href={'/'} className={styles.bt4}>Reserve o seu !!</Link>
+      <p className={styles.bt4}>Reserve pelo chat !!</p>
       </section>
     </section>
     {/*Rodapé*/}

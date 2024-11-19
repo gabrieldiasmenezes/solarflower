@@ -2,18 +2,20 @@
 import Link from "next/link";
 import styles from "./page.module.css"
 import { useState } from "react";
+import WatsonChat from './WatsonChat'
 export default function Home() {
   const[menu,setMenu]=useState(false)
   const mostra=()=>{setMenu(true)}
   const fecha=()=>{setMenu(false)}
   return (
     <>
+    <WatsonChat/>
      {/* Menu mobile */}
      
     {menu && (
       <section className={`${styles.MenuM} ${styles.mostrar}`}>
       <button className={styles.Fechar} onClick={fecha}>x</button>
-      <Link href={""} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
       <Link href={"routes/Login"} className={styles.loginL}>Login</Link>
       <Link href={"routes/Produtos"} className={styles.linkL}>Produtos</Link>
       <Link href={"routes/Depoimentos"} className={styles.linkL}>Depoimentos</Link>
@@ -37,7 +39,7 @@ export default function Home() {
         <Link href={"routes/Contato"} className={styles.link}>Contato</Link>
       </ul>
       <Link href={"routes/Login"} className={styles.login}>Login</Link>
-      <Link href={""} className={styles.github}><img src="github.jfif" alt="GitHub"  /></Link>
+      <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="github.jfif" alt="GitHub"  /></Link>
     </header>
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.pt1}>
@@ -85,7 +87,7 @@ export default function Home() {
         </section>
       </section>
       <section className={styles.bt3}>
-        <Link href={'/'} className={styles.bt4}>Reserve o seu !!</Link>
+        <p className={styles.bt4}>Reserve pelo chat!!</p>
       </section>
     </section>
     {/*Rodapé*/}
@@ -111,6 +113,7 @@ export default function Home() {
         <Link className={styles.linkR} href={'routes/Contato'}>Contato</Link>
       </ul>
     </footer>
+
     </>
   );
 }

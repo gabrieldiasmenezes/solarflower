@@ -2,7 +2,7 @@
 import styles from './Depoimentos.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
-
+import WatsonChat from './WatsonChat'
 export default function Depoimentos(){
     const [menu,setMenu]=useState(false)
     const mostra=()=>{setMenu(true)}
@@ -10,11 +10,12 @@ export default function Depoimentos(){
 
     return(
         <>
+        <WatsonChat/>
         {/* Menu mobile */}  
         {menu && (
           <section className={`${styles.MenuM} ${styles.mostrar}`}>
             <button className={styles.Fechar} onClick={fecha}>x</button>
-            <Link href={""} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
+            <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.githubG}><img className={styles.githubG} src="github.jfif" alt="GitHub"  /></Link>
             <Link href={"Login"} className={styles.loginL}>Login</Link>
             <Link href={"Produtos"} className={styles.linkL}>Produtos</Link>
             <Link href={"Depoimentos"} className={styles.linkL}>Depoimentos</Link>
@@ -40,7 +41,7 @@ export default function Depoimentos(){
             <Link href={"Contato"} className={styles.link}>Contato</Link>
           </ul>
           <Link href={"Login"} className={styles.login}>Login</Link>
-          <Link href={""} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
+          <Link href={"https://github.com/gabrieldiasmenezes/solarflower"} className={styles.github}><img src="/github.jfif" alt="GitHub"  /></Link>
         </header>
 
         {/* Textos na primeira parte da pagina principal */}
@@ -107,7 +108,7 @@ export default function Depoimentos(){
             </section>
           </section>
           <section className={styles.bt3}>
-            <Link href={'/'} className={styles.bt4}>Reserve o seu !!</Link>
+            <p className={styles.bt4}>Reserve pelo chat !!</p>
           </section>
         </section>
 

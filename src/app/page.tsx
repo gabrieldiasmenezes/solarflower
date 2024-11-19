@@ -58,7 +58,7 @@ export default function Home() {
     <section className={styles.box2}>
     <section className={styles.Boxtxt1}>
       <h1 className={styles.titulo3}>Energia Reinventada</h1>
-      <p className={styles.texto3}>Um design escultural e uma solução inteligente para gerar energia limpa e sustentável, ideal para sua casa, carro ou empresa — isso é o que define a Solar Power.</p>
+      <p className={styles.texto3}>Um design escultural e uma solução inteligente para gerar energia limpa e sustentável, ideal para sua casa, carro ou empresa — isso é o que define a Solar Flower.</p>
     </section>
     <section className={styles.Boxtxt2}>
       <h1 className={styles.titulo4}>Mãe Natureza: A Pioneira em Eficiência</h1>

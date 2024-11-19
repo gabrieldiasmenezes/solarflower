@@ -70,7 +70,7 @@ export default function Produtos(){
         <section className={styles.box2}>
             <section className={styles.Boxtxt1}>
                 <h1 className={styles.titulo3}>Energia Instantânia</h1>
-                <p className={styles.texto3}>Aproveite a energia solar de forma descomplicada. Em poucas horas, o Smartflower é entregue e instalado, trazendo energia renovável e eficiente para sua casa com um sistema totalmente independente.</p>
+                <p className={styles.texto3}>Aproveite a energia solar de forma descomplicada. Em poucas horas, o Solar Flower é entregue e instalado, trazendo energia renovável e eficiente para sua casa com um sistema totalmente independente.</p>
             </section>
             <section className={styles.bgBox2}></section>
             <img className={styles.bg2Box2} src="/bg2.jfif" alt="bg1"/>
@@ -80,11 +80,11 @@ export default function Produtos(){
         <section className={styles.box3}>
             <section className={styles.Boxtxt2}>
                 <h1 className={styles.titulo4}>Energia Inspirada</h1>
-                <p className={styles.texto4}>Redefinindo a beleza da energia solar. O Smartflower combina design inovador e funcionalidade, movendo-se ao longo do dia para capturar a luz solar de forma dinâmica. Um verdadeiro símbolo de elegância e alto desempenho, tudo em um só produto.</p>
+                <p className={styles.texto4}>Redefinindo a beleza da energia solar. O Solar Flower combina design inovador e funcionalidade, movendo-se ao longo do dia para capturar a luz solar de forma dinâmica. Um verdadeiro símbolo de elegância e alto desempenho, tudo em um só produto.</p>
             </section>
             <section className={styles.Boxtxt3}>
                 <h1 className={styles.titulo5}>Energia Inteligente</h1>
-                <p className={styles.texto5}>Com robótica inteligente, o SmartFlower segue o sol ao longo do dia, aumentando a geração de energia em até 40% em comparação com painéis tradicionais. E ao anoitecer, ele se fecha e se auto-limpa, garantindo desempenho máximo todos os dias.</p>
+                <p className={styles.texto5}>Com robótica inteligente, o Solar Flower segue o sol ao longo do dia, aumentando a geração de energia em até 40% em comparação com painéis tradicionais. E ao anoitecer, ele se fecha e se auto-limpa, garantindo desempenho máximo todos os dias.</p>
             </section>
             <section className={styles.bgBox3}></section>
             <img className={styles.bg2Box3} src="/bg3.jfif" alt="bg1"/>

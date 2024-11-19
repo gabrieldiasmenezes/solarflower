@@ -85,7 +85,7 @@ export default function Home() {
         </section>
       </section>
       <section className={styles.bt3}>
-        <Link href={'LoginA'} className={styles.bt4}>Reserve o seu!!</Link>
+        <Link href={'routes/LoginA'} className={styles.bt4}>Reserve o seu!!</Link>
       </section>
     </section>
     {/*Rodapé*/}

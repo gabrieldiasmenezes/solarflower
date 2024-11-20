@@ -116,12 +116,12 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     }
 
     // Validação de CPF/CNPJ
-    if (formData.selectedOption === 'cliente_comercial' && formData.documento.length !== 14) {
+    if (formData.selectedOption === 'pessoa_juridica' && formData.documento.length !== 14) {
       setFormData({ ...formData, cnpjCpfError: 'CNPJ inválido' });
       return;
     }
 
-    if (formData.selectedOption === 'cliente_residencial' && formData.documento.length !== 11) {
+    if (formData.selectedOption === 'pessoa_fisica' && formData.documento.length !== 11) {
       setFormData({ ...formData, cnpjCpfError: 'CPF inválido' });
       return;
     }
@@ -149,12 +149,13 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
               <select
                 className={styles.input}
                 value={formData.selectedOption}
+                style={{ color: 'black' }}
                 onChange={handleSelectChange}
                 required
               >
                 <option value="">Eu sou</option>
-                <option value="cliente_comercial">Cliente Comercial</option>
-                <option value="cliente_residencial">Cliente Residencial</option>
+                <option value="pessoa_juridica">Pessoa Juridica</option>
+                <option value="pessoa_fisica">Pessoa Física</option>
               </select>
               <label className={styles.label}>Tipo de Cliente</label>
             </div>
@@ -174,10 +175,10 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
                 type="text"
                 value={formData.documento}
                 onChange={(e) => setFormData({ ...formData, documento: e.target.value })}
-                maxLength={formData.selectedOption === 'cliente_comercial' ? 14 : 11}
+                maxLength={formData.selectedOption === 'pessoa_juridica' ? 14 : 11}
                 required
               />
-              <label className={styles.label}>{formData.selectedOption === 'cliente_comercial' ? 'CNPJ' : 'CPF'}</label>
+              <label className={styles.label}>{formData.selectedOption === 'pessoa_juridica' ? 'CNPJ' : 'CPF'}</label>
               {formData.cnpjCpfError && <p style={{ color: 'red' }}>{formData.cnpjCpfError}</p>}
             </div>
             <div className={styles.linhas}>

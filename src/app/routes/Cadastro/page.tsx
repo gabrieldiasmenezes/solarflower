@@ -155,7 +155,7 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
               >
                 <option value="">Eu sou</option>
                 <option value="pessoa_juridica">Pessoa Juridica</option>
-                <option value="pessoa_fisica">Pessoa Física</option>
+                <option value="pessoa_fisica">Pessoa Fisica</option>
               </select>
               <label className={styles.label}>Tipo de Cliente</label>
             </div>

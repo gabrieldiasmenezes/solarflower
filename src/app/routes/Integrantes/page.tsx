@@ -42,7 +42,7 @@ export default function Depoimentos(){
     {/*Textos na primeira parte da pagina principal */}
     <section className={styles.box1}>
             <section className={styles.BSPP}>
-                <img className={styles.SP} src="/SolarPower.png" alt="" />
+                <img className={styles.SP} src="/joao.jpeg" alt="" />
                 <h1 className={styles.SolarP}>João Gabriel Silva Oliveira</h1>
                 <p className={styles.textoP}>RM:555308</p>
                 <Link href={'https://github.com/JoaoGabrielSilvaOliveiraa'} className={styles.bt1}>GITHUB</Link>

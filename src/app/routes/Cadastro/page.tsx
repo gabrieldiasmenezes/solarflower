@@ -6,9 +6,7 @@ import { useRouter } from 'next/navigation';
 
 // Definição dos tipos
 type FormData = {
-  selectedOption: string;
   nome: string;
-  documento: string;
   email: string;
   telefone: string;
   cep: string;
@@ -16,7 +14,6 @@ type FormData = {
   cidade: string;
   estado: string;
   senha: string;
-  cnpjCpfError: string;
   error: string;
   loading: boolean;
 };
@@ -24,9 +21,7 @@ type FormData = {
 export default function Cadastro() {
   // Estado para armazenar os dados do formulário
   const [formData, setFormData] = useState<FormData>({
-    selectedOption: '',
     nome: '',
-    documento: '',
     email: '',
     telefone: '',
     cep: '',
@@ -34,22 +29,12 @@ export default function Cadastro() {
     cidade: '',
     estado: '',
     senha: '',
-    cnpjCpfError: '',
     error: '',
     loading: false,
   });
 
   const router = useRouter();
 
-  // Função para lidar com a mudança de seleção no "Eu sou"
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      selectedOption: event.target.value,
-      documento: '',
-      cnpjCpfError: '',
-    });
-  };
 
   // Função para buscar o endereço com base no CEP
   // Função para buscar o endereço com base no CEP
@@ -115,17 +100,6 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
       return;
     }
 
-    // Validação de CPF/CNPJ
-    if (formData.selectedOption === 'pessoa_juridica' && formData.documento.length !== 14) {
-      setFormData({ ...formData, cnpjCpfError: 'CNPJ inválido' });
-      return;
-    }
-
-    if (formData.selectedOption === 'pessoa_fisica' && formData.documento.length !== 11) {
-      setFormData({ ...formData, cnpjCpfError: 'CPF inválido' });
-      return;
-    }
-
     // Validação de senha (deve ter exatamente 6 caracteres)
     if (formData.senha.length !== 6) {
       setFormData({ ...formData, error: 'A senha deve ter exatamente 6 caracteres' });
@@ -145,20 +119,7 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         <section className={styles.background}>
           <h3 className={styles.titulo}>Formulario de Cadastro</h3>
           <form className={styles.formulario} onSubmit={handleFormSubmit}>
-            <div className={styles.linhas}>
-              <select
-                className={styles.input}
-                value={formData.selectedOption}
-                style={{ color: 'black' }}
-                onChange={handleSelectChange}
-                required
-              >
-                <option value="">Eu sou</option>
-                <option value="pessoa_juridica">Pessoa Juridica</option>
-                <option value="pessoa_fisica">Pessoa Fisica</option>
-              </select>
-              <label className={styles.label}>Tipo de Cliente</label>
-            </div>
+           
             <div className={styles.linhas}>
               <input
                 className={styles.input}
@@ -168,18 +129,6 @@ const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
                 required
               />
               <label className={styles.label}>Nome</label>
-            </div>
-            <div className={styles.linhas}>
-              <input
-                className={styles.input}
-                type="text"
-                value={formData.documento}
-                onChange={(e) => setFormData({ ...formData, documento: e.target.value })}
-                maxLength={formData.selectedOption === 'pessoa_juridica' ? 14 : 11}
-                required
-              />
-              <label className={styles.label}>{formData.selectedOption === 'pessoa_juridica' ? 'CNPJ' : 'CPF'}</label>
-              {formData.cnpjCpfError && <p style={{ color: 'red' }}>{formData.cnpjCpfError}</p>}
             </div>
             <div className={styles.linhas}>
               <input

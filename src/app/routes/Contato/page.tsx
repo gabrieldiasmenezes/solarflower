@@ -111,6 +111,8 @@ export default function Contato() {
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>
+      {/* Imagem para a tela de fundo da primeira parte */}
+      <section className={styles.bg}></section>
       <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />
     </>
   );

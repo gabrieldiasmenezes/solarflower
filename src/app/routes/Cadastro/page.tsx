@@ -4,7 +4,6 @@ import styles from './Cadastro.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Definição dos tipos
 type FormData = {
   nome: string;
   email: string;
@@ -34,13 +33,11 @@ export default function Cadastro() {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
-  // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-
-    value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    value = value.replace(/\D/g, '');
     if (value.length > 5) {
-      value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
+      value = value.slice(0, 5) + '-' + value.slice(5, 8);
     }
 
     setFormData((prevState) => ({
@@ -83,7 +80,6 @@ export default function Cadastro() {
     }
   };
 
-  // Função para validar e enviar os dados
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -149,7 +145,7 @@ export default function Cadastro() {
       });
 
       if (response.ok) {
-        router.push('Usuario'); // Redireciona para a página do usuário
+        router.push('Usuario');
       } else {
         const errorData = await response.json();
         setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);
@@ -270,6 +266,7 @@ export default function Cadastro() {
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>
+      <section className={styles.bg}></section>
       <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />
     </>
   );

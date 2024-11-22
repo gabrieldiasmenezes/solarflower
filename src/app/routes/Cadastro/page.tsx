@@ -1,6 +1,6 @@
-'use client';
-import Link from 'next/link';
-import styles from './Cadastro.module.css';
+'use client'
+import Link from 'next/link'
+import styles from './Cadastro.module.css'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -15,8 +15,6 @@ type FormData = {
   cidade: string;
   estado: string;
   senha: string;
-  error: string | null;
-  loading: boolean;
 };
 
 export default function Cadastro() {
@@ -31,15 +29,17 @@ export default function Cadastro() {
     cidade: '',
     estado: '',
     senha: '',
-    error: null,  // Inicializando como null
-    loading: false,
   });
 
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
+
+    // Formatar o CEP com hífen
     value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
     if (value.length > 5) {
       value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
@@ -51,36 +51,30 @@ export default function Cadastro() {
       rua: '',
       cidade: '',
       estado: '',
-      error: null,  // Limpa o erro a cada digitação
     }));
 
+    // Validar CEP (9 caracteres, com ou sem hífen)
     if (value.length === 9) {
-      setFormData((prevState) => ({ ...prevState, loading: true }));
+      setLoading(true);
       try {
         const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
         const data = await response.json();
 
         if (data.erro) {
-          setFormData((prevState) => ({
-            ...prevState,
-            error: 'CEP não encontrado',
-            loading: false,
-          }));
+          setError('CEP não encontrado');
+          setLoading(false);
         } else {
           setFormData((prevState) => ({
             ...prevState,
             rua: data.logradouro,
             cidade: data.localidade,
             estado: data.uf,
-            loading: false,
           }));
+          setLoading(false);
         }
-      } catch (error) {
-        setFormData((prevState) => ({
-          ...prevState,
-          error: 'Erro ao buscar o CEP',
-          loading: false,
-        }));
+      } catch {
+        setError('Erro ao buscar o CEP');
+        setLoading(false);
       }
     } else {
       setFormData((prevState) => ({
@@ -108,34 +102,34 @@ export default function Cadastro() {
       !formData.estado ||
       !formData.senha
     ) {
-      setFormData({ ...formData, error: 'Por favor, preencha todos os campos' });
+      setError('Por favor, preencha todos os campos');
       return;
     }
 
     // Validação de CPF (11 dígitos)
     const cpfRegex = /^\d{11}$/;
     if (!cpfRegex.test(formData.cpf)) {
-      setFormData({ ...formData, error: 'CPF inválido. Use apenas números com 11 dígitos.' });
+      setError('CPF inválido. Use apenas números com 11 dígitos.');
       return;
     }
 
     // Validação de Telefone (11 dígitos)
     const telefoneRegex = /^\d{11}$/;
     if (!telefoneRegex.test(formData.telefone)) {
-      setFormData({ ...formData, error: 'Telefone inválido. Use apenas números com 11 dígitos.' });
+      setError('Telefone inválido. Use apenas números com 11 dígitos.');
       return;
     }
 
     // Validação de CEP (9 caracteres, com ou sem hífen)
     const cepRegex = /^\d{5}-\d{3}$/;
     if (!cepRegex.test(formData.cep)) {
-      setFormData({ ...formData, error: 'CEP inválido. Use o formato 12345-678.' });
+      setError('CEP inválido. Use o formato 12345-678.');
       return;
     }
 
-    // Validação de Senha (8 caracteres)
-    if (formData.senha.length !== 8) {
-      setFormData({ ...formData, error: 'A senha deve ter exatamente 8 caracteres.' });
+    // Validação de Senha (9 caracteres)
+    if (formData.senha.length !== 9) {
+      setError('A senha deve ter exatamente 9 caracteres.');
       return;
     }
 
@@ -152,7 +146,7 @@ export default function Cadastro() {
       senha: formData.senha,
     };
 
-    setFormData({ ...formData, loading: true });
+    setLoading(true);
 
     try {
       // Enviando os dados para a API
@@ -168,18 +162,12 @@ export default function Cadastro() {
         router.push('Usuario'); // Redireciona para a página do usuário
       } else {
         const errorData = await response.json();
-        setFormData({
-          ...formData,
-          error: `Erro: ${errorData.message || 'Tente novamente mais tarde.'}`,
-          loading: false,
-        });
+        setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);
+        setLoading(false);
       }
     } catch (error) {
-      setFormData({
-        ...formData,
-        error: 'Erro ao enviar os dados. Tente novamente.',
-        loading: false,
-      });
+      setError('Erro ao enviar os dados. Tente novamente.');
+      setLoading(false);
     }
   };
 
@@ -284,11 +272,12 @@ export default function Cadastro() {
               <label className={styles.label}>Senha</label>
             </div>
             <div className={styles.botao}>
-              <button type="submit" className={styles.button}>Mandar Cadastro</button>
+              <button type="submit" className={styles.button}>
+                {loading ? 'Carregando...' : 'Mandar Cadastro'}
+              </button>
             </div>
           </form>
-          {formData.loading && <p>Carregando...</p>}
-          {formData.error && <p style={{ color: 'red' }}>{formData.error}</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>
       <section className={styles.bg}></section>

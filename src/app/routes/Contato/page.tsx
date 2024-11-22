@@ -120,7 +120,9 @@ export default function Contato() {
             </button>
           </div>
         </form>
-        {error && <p className={styles.errorText}>{error}</p>} {/* Exibe o erro se presente */}
+
+        {/* Exibe a mensagem de erro se existir */}
+        {error && <p className={styles.errorText}>{error}</p>}
       </section>
       {/* Imagem para a tela de fundo da primeira parte */}
       <section className={styles.bg}></section>

@@ -29,7 +29,7 @@ export default function Cadastro() {
     senha: '',
   });
 
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null); // Declaração do estado de erro
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
@@ -159,14 +159,14 @@ export default function Cadastro() {
 
   return (
     <>
-      <section className={styles.boxForm}>
-        <Link href={'/'} className={styles.Menu}>
+      <section className={styles.formContainer}>
+        <Link href={'/'} className={styles.menuLink}>
           Menu Principal
         </Link>
-        <section className={styles.background}>
-          <h3 className={styles.titulo}>Formulario de Cadastro</h3>
-          <form className={styles.formulario} onSubmit={handleFormSubmit}>
-            <div className={styles.linhas}>
+        <section className={styles.backgroundSection}>
+          <h3 className={styles.title}>Formulario de Cadastro</h3>
+          <form className={styles.form} onSubmit={handleFormSubmit}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -176,7 +176,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Nome</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="email"
@@ -186,7 +186,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Email</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -197,7 +197,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Telefone</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -208,7 +208,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>CPF</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -219,7 +219,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>CEP</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -228,7 +228,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Rua</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -237,7 +237,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Cidade</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="text"
@@ -246,7 +246,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Estado</label>
             </div>
-            <div className={styles.linhas}>
+            <div className={styles.inputGroup}>
               <input
                 className={styles.input}
                 type="password"
@@ -257,13 +257,13 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Senha</label>
             </div>
-            <div className={styles.botao}>
+            <div className={styles.submitButton}>
               <button type="submit" className={styles.button}>
                 {loading ? 'Carregando...' : 'Mandar Cadastro'}
               </button>
             </div>
           </form>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p className={styles.errorText}>{error}</p>} {/* Exibe o erro se presente */}
         </section>
       </section>
       <section className={styles.bg}></section>

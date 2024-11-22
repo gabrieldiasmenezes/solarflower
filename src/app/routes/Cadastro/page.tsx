@@ -31,7 +31,7 @@ export default function Cadastro() {
     cidade: '',
     estado: '',
     senha: '',
-    error: null,
+    error: null,  // Inicializando como null
     loading: false,
   });
 
@@ -40,8 +40,6 @@ export default function Cadastro() {
   // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-
-    // Formatar o CEP com hífen
     value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
     if (value.length > 5) {
       value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
@@ -53,10 +51,9 @@ export default function Cadastro() {
       rua: '',
       cidade: '',
       estado: '',
-      error: null,  // Limpar o erro ao digitar um novo CEP
+      error: null,  // Limpa o erro a cada digitação
     }));
 
-    // Validar CEP (9 caracteres, com ou sem hífen)
     if (value.length === 9) {
       setFormData((prevState) => ({ ...prevState, loading: true }));
       try {
@@ -78,7 +75,7 @@ export default function Cadastro() {
             loading: false,
           }));
         }
-      } catch {
+      } catch (error) {
         setFormData((prevState) => ({
           ...prevState,
           error: 'Erro ao buscar o CEP',
@@ -171,10 +168,18 @@ export default function Cadastro() {
         router.push('Usuario'); // Redireciona para a página do usuário
       } else {
         const errorData = await response.json();
-        setFormData({ ...formData, error: `Erro: ${errorData.message || 'Tente novamente mais tarde.'}`, loading: false });
+        setFormData({
+          ...formData,
+          error: `Erro: ${errorData.message || 'Tente novamente mais tarde.'}`,
+          loading: false,
+        });
       }
     } catch (error) {
-      setFormData({ ...formData, error: 'Erro ao enviar os dados. Tente novamente.', loading: false });
+      setFormData({
+        ...formData,
+        error: 'Erro ao enviar os dados. Tente novamente.',
+        loading: false,
+      });
     }
   };
 

@@ -63,7 +63,7 @@ export default function Contato() {
         setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);
         setLoading(false);
       }
-    } catch (error) {
+    } catch {
       setError('Erro ao enviar a mensagem. Tente novamente.');
       setLoading(false);
     }

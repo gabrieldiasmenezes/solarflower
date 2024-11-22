@@ -1,10 +1,9 @@
 'use client'
-import Link from 'next/link'
-import styles from './Cadastro.module.css'
+import Link from 'next/link';
+import styles from './Cadastro.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Definição dos tipos
 type FormData = {
   nome: string;
   email: string;
@@ -18,7 +17,6 @@ type FormData = {
 };
 
 export default function Cadastro() {
-  // Estado para armazenar os dados do formulário
   const [formData, setFormData] = useState<FormData>({
     nome: '',
     email: '',
@@ -35,14 +33,11 @@ export default function Cadastro() {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
-  // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-
-    // Formatar o CEP com hífen
-    value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    value = value.replace(/\D/g, '');
     if (value.length > 5) {
-      value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
+      value = value.slice(0, 5) + '-' + value.slice(5, 8);
     }
 
     setFormData((prevState) => ({
@@ -53,7 +48,6 @@ export default function Cadastro() {
       estado: '',
     }));
 
-    // Validar CEP (9 caracteres, com ou sem hífen)
     if (value.length === 9) {
       setLoading(true);
       try {
@@ -86,60 +80,43 @@ export default function Cadastro() {
     }
   };
 
-  // Função para validar e enviar os dados
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    // Validação dos campos obrigatórios
-    if (
-      !formData.nome ||
-      !formData.email ||
-      !formData.telefone ||
-      !formData.cpf ||
-      !formData.cep ||
-      !formData.rua ||
-      !formData.cidade ||
-      !formData.estado ||
-      !formData.senha
-    ) {
+    if (!formData.nome || !formData.email || !formData.telefone || !formData.cpf || !formData.cep || !formData.rua || !formData.cidade || !formData.estado || !formData.senha) {
       setError('Por favor, preencha todos os campos');
       return;
     }
 
-    // Validação de CPF (11 dígitos)
     const cpfRegex = /^\d{11}$/;
     if (!cpfRegex.test(formData.cpf)) {
       setError('CPF inválido. Use apenas números com 11 dígitos.');
       return;
     }
 
-    // Validação de Telefone (11 dígitos)
     const telefoneRegex = /^\d{11}$/;
     if (!telefoneRegex.test(formData.telefone)) {
       setError('Telefone inválido. Use apenas números com 11 dígitos.');
       return;
     }
 
-    // Validação de CEP (9 caracteres, com ou sem hífen)
     const cepRegex = /^\d{5}-\d{3}$/;
     if (!cepRegex.test(formData.cep)) {
       setError('CEP inválido. Use o formato 12345-678.');
       return;
     }
 
-    // Validação de Senha (9 caracteres)
     if (formData.senha.length !== 9) {
       setError('A senha deve ter exatamente 9 caracteres.');
       return;
     }
 
-    // Preparando dados para envio no formato correto da API
     const userData = {
       nome: formData.nome,
-      documento: formData.cpf,  // "documento" é equivalente ao CPF
+      documento: formData.cpf,
       email: formData.email,
       telefone: formData.telefone,
-      cep: formData.cep.replace("-", ""),  // Remover o hífen do CEP para envio
+      cep: formData.cep.replace("-", ""),
       rua: formData.rua,
       cidade: formData.cidade,
       estado: formData.estado,
@@ -149,7 +126,6 @@ export default function Cadastro() {
     setLoading(true);
 
     try {
-      // Enviando os dados para a API
       const response = await fetch('/api/GlobalSolution/api/usuarios/registro', {
         method: 'POST',
         headers: {
@@ -159,7 +135,7 @@ export default function Cadastro() {
       });
 
       if (response.ok) {
-        router.push('Usuario'); // Redireciona para a página do usuário
+        router.push('Usuario');
       } else {
         const errorData = await response.json();
         setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);

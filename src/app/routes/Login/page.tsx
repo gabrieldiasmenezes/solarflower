@@ -50,7 +50,7 @@ export default function Login() {
         const errorData = await response.json();
         setError(errorData.message || 'Erro ao fazer login. Tente novamente.');
       }
-    } catch (error) {
+    } catch {
       setError('Erro ao se conectar ao servidor. Tente novamente.');
     } finally {
       setLoading(false);
@@ -60,41 +60,45 @@ export default function Login() {
   return (
     <>
       <section className={styles.boxForm}>
-      <Link href={'/'} className={styles.Menu}>
-        Menu Principal
-      </Link>
-      <section className={styles.background}>
-        <h3 className={styles.titulo}>Login</h3>
-        <form onSubmit={handleLoginSubmit} className={styles.formulario}>
-          <div className={styles.linhas}>
-            <input
-              className={styles.input}
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleInputChange}
-            />
-            <label className={styles.label}>Email</label>
-          </div>
-          <div className={styles.linhas}>
-            <input
-              className={styles.input}
-              type="password"
-              name="senha"
-              value={senha}
-              onChange={handleInputChange}
-            />
-            <label className={styles.label}>Senha</label>
-          </div>
-          <div className={styles.botao}>
-            <button type="submit" className={styles.button} disabled={loading}>
-              {loading ? 'Carregando...' : 'Entrar'}
-            </button>
-          </div>
-        </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <Link href={'/'} className={styles.Menu}>
+          Menu Principal
+        </Link>
+        <section className={styles.background}>
+          <h3 className={styles.titulo}>Login</h3>
+          <form onSubmit={handleLoginSubmit} className={styles.formulario}>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleInputChange}
+              />
+              <label className={styles.label}>Email</label>
+            </div>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="password"
+                name="senha"
+                value={senha}
+                onChange={handleInputChange}
+              />
+              <label className={styles.label}>Senha</label>
+            </div>
+            <div className={styles.botao}>
+              <button type="submit" className={styles.button} disabled={loading}>
+                {loading ? 'Carregando...' : 'Entrar'}
+              </button>
+            </div>
+              <p className={styles.cad}>Não tem uma <Link href={'Cadastro'} className={styles.link}>conta</Link>?</p>
+          </form>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </section>
       </section>
-    </section>
+
+      
+
       {/* Imagem para a tela de fundo da primeira parte */}
       <section className={styles.bg}></section>
       <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />

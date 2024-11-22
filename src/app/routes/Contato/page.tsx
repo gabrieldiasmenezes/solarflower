@@ -17,7 +17,7 @@ export default function Contato() {
   });
 
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);  // Estado para controlar o carregamento
+  const [loading, setLoading] = useState<boolean>(false); // Estado para controlar o carregamento
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -33,7 +33,7 @@ export default function Contato() {
       return;
     }
 
-    setLoading(true);  // Ativa o carregamento ao iniciar o envio
+    setLoading(true); // Ativa o carregamento ao iniciar o envio
 
     try {
       // Envia os dados para a API
@@ -58,11 +58,11 @@ export default function Contato() {
         telefone: '',
         comentario: '',
       });
-      setError(null);
+      setError(null); // Limpa o erro após o envio bem-sucedido
     } catch (error) {
       setError('Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.');
     } finally {
-      setLoading(false);  // Desativa o carregamento após a tentativa
+      setLoading(false); // Desativa o carregamento após a tentativa
     }
   };
 
@@ -115,6 +115,7 @@ export default function Contato() {
               </button>
             </div>
           </form>
+          {/* Exibe a mensagem de erro apenas se existir */}
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>

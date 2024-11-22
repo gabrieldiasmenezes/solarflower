@@ -148,7 +148,7 @@ export default function Cadastro() {
       documento: formData.cpf,  // "documento" é equivalente ao CPF
       email: formData.email,
       telefone: formData.telefone,
-      cep: formData.cep,  // Remover o hífen do CEP para envio
+      cep: formData.cep.replace("-", ""),  // Remover o hífen do CEP para envio
       rua: formData.rua,
       cidade: formData.cidade,
       estado: formData.estado,

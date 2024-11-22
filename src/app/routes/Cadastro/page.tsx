@@ -4,6 +4,7 @@ import styles from './Cadastro.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// Definição dos tipos
 type FormData = {
   nome: string;
   email: string;
@@ -33,11 +34,13 @@ export default function Cadastro() {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
+  // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-    value = value.replace(/\D/g, '');
+
+    value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
     if (value.length > 5) {
-      value = value.slice(0, 5) + '-' + value.slice(5, 8);
+      value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
     }
 
     setFormData((prevState) => ({
@@ -80,10 +83,21 @@ export default function Cadastro() {
     }
   };
 
+  // Função para validar e enviar os dados
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!formData.nome || !formData.email || !formData.telefone || !formData.cpf || !formData.cep || !formData.rua || !formData.cidade || !formData.estado || !formData.senha) {
+    if (
+      !formData.nome ||
+      !formData.email ||
+      !formData.telefone ||
+      !formData.cpf ||
+      !formData.cep ||
+      !formData.rua ||
+      !formData.cidade ||
+      !formData.estado ||
+      !formData.senha
+    ) {
       setError('Por favor, preencha todos os campos');
       return;
     }
@@ -135,7 +149,7 @@ export default function Cadastro() {
       });
 
       if (response.ok) {
-        router.push('Usuario');
+        router.push('Usuario'); // Redireciona para a página do usuário
       } else {
         const errorData = await response.json();
         setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);
@@ -256,7 +270,6 @@ export default function Cadastro() {
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </section>
       </section>
-      <section className={styles.bg}></section>
       <img className={styles.bg1} src="/bgInt.jfif" alt="bg1" />
     </>
   );

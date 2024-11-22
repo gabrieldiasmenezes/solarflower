@@ -1,6 +1,6 @@
-'use client'
-import Link from 'next/link'
-import styles from './Cadastro.module.css'
+'use client';
+import Link from 'next/link';
+import styles from './Cadastro.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -15,7 +15,7 @@ type FormData = {
   cidade: string;
   estado: string;
   senha: string;
-  error: string;
+  error: string | null;
   loading: boolean;
 };
 
@@ -31,7 +31,7 @@ export default function Cadastro() {
     cidade: '',
     estado: '',
     senha: '',
-    error: '',
+    error: null,
     loading: false,
   });
 
@@ -53,7 +53,7 @@ export default function Cadastro() {
       rua: '',
       cidade: '',
       estado: '',
-      error: '',
+      error: null,  // Limpar o erro ao digitar um novo CEP
     }));
 
     // Validar CEP (9 caracteres, com ou sem hífen)
@@ -137,7 +137,7 @@ export default function Cadastro() {
     }
 
     // Validação de Senha (8 caracteres)
-    if (formData.senha.length !== 9) {
+    if (formData.senha.length !== 8) {
       setFormData({ ...formData, error: 'A senha deve ter exatamente 8 caracteres.' });
       return;
     }

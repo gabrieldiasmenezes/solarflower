@@ -17,13 +17,14 @@ export default function Contato() {
   });
 
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);  // Estado para controlar o carregamento
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     // Verifica se todos os campos estão preenchidos
@@ -32,16 +33,37 @@ export default function Contato() {
       return;
     }
 
-    // Mensagem de sucesso
-    alert('Sua mensagem foi enviada com sucesso!');
+    setLoading(true);  // Ativa o carregamento ao iniciar o envio
 
-    // Resetar os campos do formulário
-    setFormData({
-      email: '',
-      telefone: '',
-      comentario: '',
-    });
-    setError(null);
+    try {
+      // Envia os dados para a API
+      const response = await fetch('/api/GlobalSolution/api/contatos/criar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar o formulário');
+      }
+
+      // Mensagem de sucesso
+      alert('Sua mensagem foi enviada com sucesso!');
+
+      // Resetar os campos do formulário
+      setFormData({
+        email: '',
+        telefone: '',
+        comentario: '',
+      });
+      setError(null);
+    } catch (error) {
+      setError('Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.');
+    } finally {
+      setLoading(false);  // Desativa o carregamento após a tentativa
+    }
   };
 
   return (
@@ -88,8 +110,8 @@ export default function Contato() {
               <label className={styles.label}>Comentário</label>
             </div>
             <div className={styles.botao}>
-              <button type="submit" className={styles.button}>
-                Mandar Contato
+              <button type="submit" className={styles.button} disabled={loading}>
+                {loading ? 'Enviando...' : 'Mandar Contato'}
               </button>
             </div>
           </form>

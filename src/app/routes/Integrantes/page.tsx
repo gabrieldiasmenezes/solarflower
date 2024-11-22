@@ -51,7 +51,7 @@ export default function Depoimentos(){
                 <img className={styles.SP} src="/gabriel.jfif" alt="" />
                 <h1 className={styles.SolarP}>Gabriel Dias Menezes</h1>
                 <p className={styles.textoP}>RM:555019</p>
-                <Link href={'https://github.com/JoaoGabrielSilvaOliveiraa'} className={styles.bt1}>GITHUB</Link>
+                <Link href={'https://github.com/gabrieldiasmenezes'} className={styles.bt1}>GITHUB</Link>
             </section>
             <section className={styles.BSPP}>
                 <img className={styles.SP} src="/sofia.jpeg" alt="" />

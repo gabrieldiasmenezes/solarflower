@@ -1,14 +1,26 @@
 'use client'
 import Link from 'next/link'
 import styles from './Ag.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Agendamentos() {
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
   const [error, setError] = useState('');
-  const [agendamentos, setAgendamentos] = useState<{ data: string, hora: string }[]>([]);
+  const [agendamentos, setAgendamentos] = useState<{
+    data: string, hora: string, id: number
+  }[]>([]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
+
+  const email = localStorage.getItem('userEmail'); // Obtém o email do usuário
+
+  useEffect(() => {
+    // Carregar os agendamentos do localStorage ao carregar o componente
+    const storedAgendamentos = localStorage.getItem('agendamentos');
+    if (storedAgendamentos) {
+      setAgendamentos(JSON.parse(storedAgendamentos));
+    }
+  }, []);
 
   const isLeapYear = (year: number): boolean => {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
@@ -60,19 +72,29 @@ export default function Agendamentos() {
       return;
     }
 
-    const novoAgendamento = { data, hora };
+    const novoAgendamento = {
+      data,
+      hora,
+      id: editIndex !== null ? agendamentos[editIndex].id : new Date().getTime(), // Usar timestamp como ID
+    };
 
     if (editIndex !== null) {
+      // Atualizar o agendamento existente
       const updatedAgendamentos = [...agendamentos];
       updatedAgendamentos[editIndex] = novoAgendamento;
       setAgendamentos(updatedAgendamentos);
       setEditIndex(null);
       alert('Agendamento atualizado com sucesso!');
     } else {
+      // Adicionar o novo agendamento
       setAgendamentos([...agendamentos, novoAgendamento]);
       alert('Agendamento salvo com sucesso!');
     }
 
+    // Salvar no localStorage
+    localStorage.setItem('agendamentos', JSON.stringify([...agendamentos, novoAgendamento]));
+
+    // Limpa os campos e erro
     setData('');
     setHora('');
     setError('');
@@ -90,7 +112,10 @@ export default function Agendamentos() {
     if (confirmed) {
       const updatedAgendamentos = agendamentos.filter((_, i) => i !== index);
       setAgendamentos(updatedAgendamentos);
-      alert('Agendamento encerrado!');
+
+      // Atualizar o localStorage
+      localStorage.setItem('agendamentos', JSON.stringify(updatedAgendamentos));
+      alert('Agendamento removido com sucesso!');
     }
   };
 
@@ -103,6 +128,18 @@ export default function Agendamentos() {
         <section className={styles.background}>
           <h3 className={styles.titulo}>Agendamentos</h3>
           <form onSubmit={handleAgendamentoSubmit} className={styles.formulario}>
+            <div className={styles.linhas}>
+              <input
+                className={styles.input}
+                type="email"
+                name="email"
+                value={email || ''}
+                readOnly
+              />
+              <label className={styles.label} htmlFor="email">
+                Email
+              </label>
+            </div>
             <div className={styles.linhas}>
               <input
                 className={styles.input}
@@ -142,7 +179,7 @@ export default function Agendamentos() {
           <h4>Histórico de Agendamentos:</h4>
           <div className={styles.agendamentosContainer}>
             {agendamentos.map((agendamento, index) => (
-              <div key={index} className={styles.agendamentoBox}>
+              <div key={agendamento.id} className={styles.agendamentoBox}>
                 <p><strong>Data:</strong> {agendamento.data}</p>
                 <p><strong>Hora:</strong> {agendamento.hora}</p>
                 <div className={styles.actions}>

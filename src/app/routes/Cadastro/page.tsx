@@ -1,9 +1,10 @@
 'use client'
-import Link from 'next/link';
-import styles from './Cadastro.module.css';
+import Link from 'next/link'
+import styles from './Cadastro.module.css'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// Definição dos tipos
 type FormData = {
   nome: string;
   email: string;
@@ -14,9 +15,12 @@ type FormData = {
   cidade: string;
   estado: string;
   senha: string;
+  error: string;
+  loading: boolean;
 };
 
 export default function Cadastro() {
+  // Estado para armazenar os dados do formulário
   const [formData, setFormData] = useState<FormData>({
     nome: '',
     email: '',
@@ -27,17 +31,20 @@ export default function Cadastro() {
     cidade: '',
     estado: '',
     senha: '',
+    error: '',
+    loading: false,
   });
 
-  const [error, setError] = useState<string | null>(null); // Declaração do estado de erro
-  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
+  // Função para formatar o CEP com hífen
   const handleCepChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-    value = value.replace(/\D/g, '');
+
+    // Formatar o CEP com hífen
+    value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
     if (value.length > 5) {
-      value = value.slice(0, 5) + '-' + value.slice(5, 8);
+      value = value.slice(0, 5) + '-' + value.slice(5, 8); // Formata o CEP com hífen
     }
 
     setFormData((prevState) => ({
@@ -46,29 +53,37 @@ export default function Cadastro() {
       rua: '',
       cidade: '',
       estado: '',
+      error: '',
     }));
 
+    // Validar CEP (9 caracteres, com ou sem hífen)
     if (value.length === 9) {
-      setLoading(true);
+      setFormData((prevState) => ({ ...prevState, loading: true }));
       try {
         const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
         const data = await response.json();
 
         if (data.erro) {
-          setError('CEP não encontrado');
-          setLoading(false);
+          setFormData((prevState) => ({
+            ...prevState,
+            error: 'CEP não encontrado',
+            loading: false,
+          }));
         } else {
           setFormData((prevState) => ({
             ...prevState,
             rua: data.logradouro,
             cidade: data.localidade,
             estado: data.uf,
+            loading: false,
           }));
-          setLoading(false);
         }
       } catch {
-        setError('Erro ao buscar o CEP');
-        setLoading(false);
+        setFormData((prevState) => ({
+          ...prevState,
+          error: 'Erro ao buscar o CEP',
+          loading: false,
+        }));
       }
     } else {
       setFormData((prevState) => ({
@@ -80,9 +95,11 @@ export default function Cadastro() {
     }
   };
 
+  // Função para validar e enviar os dados
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
+    // Validação dos campos obrigatórios
     if (
       !formData.nome ||
       !formData.email ||
@@ -94,48 +111,54 @@ export default function Cadastro() {
       !formData.estado ||
       !formData.senha
     ) {
-      setError('Por favor, preencha todos os campos');
+      setFormData({ ...formData, error: 'Por favor, preencha todos os campos' });
       return;
     }
 
+    // Validação de CPF (11 dígitos)
     const cpfRegex = /^\d{11}$/;
     if (!cpfRegex.test(formData.cpf)) {
-      setError('CPF inválido. Use apenas números com 11 dígitos.');
+      setFormData({ ...formData, error: 'CPF inválido. Use apenas números com 11 dígitos.' });
       return;
     }
 
+    // Validação de Telefone (11 dígitos)
     const telefoneRegex = /^\d{11}$/;
     if (!telefoneRegex.test(formData.telefone)) {
-      setError('Telefone inválido. Use apenas números com 11 dígitos.');
+      setFormData({ ...formData, error: 'Telefone inválido. Use apenas números com 11 dígitos.' });
       return;
     }
 
+    // Validação de CEP (9 caracteres, com ou sem hífen)
     const cepRegex = /^\d{5}-\d{3}$/;
     if (!cepRegex.test(formData.cep)) {
-      setError('CEP inválido. Use o formato 12345-678.');
+      setFormData({ ...formData, error: 'CEP inválido. Use o formato 12345-678.' });
       return;
     }
 
+    // Validação de Senha (8 caracteres)
     if (formData.senha.length !== 9) {
-      setError('A senha deve ter exatamente 9 caracteres.');
+      setFormData({ ...formData, error: 'A senha deve ter exatamente 8 caracteres.' });
       return;
     }
 
+    // Preparando dados para envio no formato correto da API
     const userData = {
       nome: formData.nome,
-      documento: formData.cpf,
+      documento: formData.cpf,  // "documento" é equivalente ao CPF
       email: formData.email,
       telefone: formData.telefone,
-      cep: formData.cep.replace("-", ""),
+      cep: formData.cep,  // Remover o hífen do CEP para envio
       rua: formData.rua,
       cidade: formData.cidade,
       estado: formData.estado,
       senha: formData.senha,
     };
 
-    setLoading(true);
+    setFormData({ ...formData, loading: true });
 
     try {
+      // Enviando os dados para a API
       const response = await fetch('/api/GlobalSolution/api/usuarios/registro', {
         method: 'POST',
         headers: {
@@ -145,28 +168,26 @@ export default function Cadastro() {
       });
 
       if (response.ok) {
-        router.push('Usuario');
+        router.push('Usuario'); // Redireciona para a página do usuário
       } else {
         const errorData = await response.json();
-        setError(`Erro: ${errorData.message || 'Tente novamente mais tarde.'}`);
-        setLoading(false);
+        setFormData({ ...formData, error: `Erro: ${errorData.message || 'Tente novamente mais tarde.'}`, loading: false });
       }
-    } catch (error) {
-      setError('Erro ao enviar os dados. Tente novamente.');
-      setLoading(false);
+    } catch{
+      setFormData({ ...formData, error: 'Erro ao enviar os dados. Tente novamente.', loading: false });
     }
   };
 
   return (
     <>
-      <section className={styles.formContainer}>
-        <Link href={'/'} className={styles.menuLink}>
+      <section className={styles.boxForm}>
+        <Link href={'/'} className={styles.Menu}>
           Menu Principal
         </Link>
-        <section className={styles.backgroundSection}>
-          <h3 className={styles.title}>Formulario de Cadastro</h3>
-          <form className={styles.form} onSubmit={handleFormSubmit}>
-            <div className={styles.inputGroup}>
+        <section className={styles.background}>
+          <h3 className={styles.titulo}>Formulario de Cadastro</h3>
+          <form className={styles.formulario} onSubmit={handleFormSubmit}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -176,7 +197,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Nome</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="email"
@@ -186,7 +207,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Email</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -197,7 +218,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Telefone</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -208,7 +229,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>CPF</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -219,7 +240,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>CEP</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -228,7 +249,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Rua</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -237,7 +258,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Cidade</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="text"
@@ -246,7 +267,7 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Estado</label>
             </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.linhas}>
               <input
                 className={styles.input}
                 type="password"
@@ -257,13 +278,12 @@ export default function Cadastro() {
               />
               <label className={styles.label}>Senha</label>
             </div>
-            <div className={styles.submitButton}>
-              <button type="submit" className={styles.button}>
-                {loading ? 'Carregando...' : 'Mandar Cadastro'}
-              </button>
+            <div className={styles.botao}>
+              <button type="submit" className={styles.button}>Mandar Cadastro</button>
             </div>
           </form>
-          {error && <p className={styles.errorText}>{error}</p>} {/* Exibe o erro se presente */}
+          {formData.loading && <p>Carregando...</p>}
+          {formData.error && <p style={{ color: 'red' }}>{formData.error}</p>}
         </section>
       </section>
       <section className={styles.bg}></section>

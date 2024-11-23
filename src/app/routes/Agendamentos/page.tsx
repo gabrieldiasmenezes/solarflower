@@ -1,6 +1,6 @@
-'use client'
-import Link from 'next/link'
-import styles from './Ag.module.css'
+'use client';
+import Link from 'next/link';
+import styles from './Ag.module.css';
 import { useState, useEffect } from 'react';
 
 export default function Agendamentos() {
@@ -8,17 +8,22 @@ export default function Agendamentos() {
   const [hora, setHora] = useState('');
   const [error, setError] = useState('');
   const [agendamentos, setAgendamentos] = useState<{
-    data: string, hora: string, id: number
+    data: string, hora: string, id: number;
   }[]>([]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
-
-  const email = localStorage.getItem('userEmail'); // Obtém o email do usuário
+  const [email, setEmail] = useState<string | null>(''); // Definir o estado para email
 
   useEffect(() => {
-    // Carregar os agendamentos do localStorage ao carregar o componente
-    const storedAgendamentos = localStorage.getItem('agendamentos');
-    if (storedAgendamentos) {
-      setAgendamentos(JSON.parse(storedAgendamentos));
+    // Verificar se o código está sendo executado no lado do cliente
+    if (typeof window !== 'undefined') {
+      // Recuperar o email e os agendamentos do localStorage no cliente
+      const userEmail = localStorage.getItem('userEmail');
+      setEmail(userEmail);
+      
+      const storedAgendamentos = localStorage.getItem('agendamentos');
+      if (storedAgendamentos) {
+        setAgendamentos(JSON.parse(storedAgendamentos));
+      }
     }
   }, []);
 
